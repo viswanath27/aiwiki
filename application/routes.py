@@ -5,10 +5,10 @@ from application.forms import RegistrationForm, LoginForm, ProcessDataForm, Conv
 from flask_login import login_user, current_user, logout_user
 from application.dataprocess.dataprocess import ConvertDICOM2PNG, MNISTFormat, getListOfFilescount, getListOfFiles
 from application.database.database import dbprocess
-from application.mlprocess.lr import lrrun
-from application.mlprocess.imageclassification import predict
-from application.mlprocess.object_identify import objectIdentify ,objectnaming
-from application.mlprocess.language_translation import main_translate_function
+#from application.mlprocess.lr import lrrun
+#from application.mlprocess.imageclassification import predict
+#from application.mlprocess.object_identify import objectIdentify ,objectnaming
+#from application.mlprocess.language_translation import main_translate_function
 import os
 from werkzeug.utils import secure_filename
 import numpy, imageio, glob, sys, os, random
@@ -241,7 +241,7 @@ def box_img():
     print(file_name_list)
     file_name = file_name_list[-1]
     print('/home/vissu/ai-server/ai-server/application'+boxed_full_filename)
-    result_image = objectnaming('/home/vissu/ai-server/ai-server/application'+boxed_full_filename,file_name)
+    #result_image = objectnaming('/home/vissu/ai-server/ai-server/application'+boxed_full_filename,file_name)
     print("Result image after analysis")
     print(result_image)
     #result_image = "dog.jpeg"
@@ -265,7 +265,7 @@ def get_img():
     print(file_name_list)
     file_name = file_name_list[-1]
     print('/home/vissu/ai-server/ai-server/application'+classified_full_filename)
-    result_image = objectIdentify('/home/vissu/ai-server/ai-server/application'+classified_full_filename,file_name)
+    #result_image = objectIdentify('/home/vissu/ai-server/ai-server/application'+classified_full_filename,file_name)
     print("Result image after analysis")
     print(result_image)
     #result_image = "dog.jpeg"
@@ -398,16 +398,17 @@ def neural_network():
 @app.route("/nlp",methods=['GET','POST'])
 def nlp():
     #languages = ['Telugu', 'Hindi', 'German', 'Kannada','Spanish']
-    l_translate = language_translate()
-    if l_translate.validate_on_submit():
+    #l_translate = language_translate()
+    #if l_translate.validate_on_submit():
         #print("Entered the nlp section")
-        l_translate.output_lang_text.data = main_translate_function(l_translate.input_lang_text.data)
-        l_translate.output_lang_text.data = l_translate.output_lang_text.data.split('<end>')[0]
-        print(l_translate.output_lang_text.data)
+    #    l_translate.output_lang_text.data = main_translate_function(l_translate.input_lang_text.data)
+    #    l_translate.output_lang_text.data = l_translate.output_lang_text.data.split('<end>')[0]
+    #    print(l_translate.output_lang_text.data)
         #text = request.form['text']
     #processed_text = text.upper()
-    processed_text = 'This is test'
-    return render_template('nlp.html',processed_text=processed_text,l_translate=l_translate)
+    #processed_text = 'This is test'
+    #return render_template('nlp.html',processed_text=processed_text,l_translate=l_translate)
+    return render_template('nlp.html')
 
 @app.route("/basics")
 def basics():
