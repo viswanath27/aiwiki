@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI IN QUANTUM</title>
+<style>
+  .article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet.css') }}">
+
+    <nav class="navbar navbar-inverse">
+        <div class="contianer-fluid ">
+            <!--LOGO-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+        </div>
+    </nav>
+
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{{ url_for('intro') }}">Introduction</a>
+  <a href="{{ url_for('net') }}">Networking</a>
+  <a href="{{ url_for('crypto') }}">Cryptography</a>
+  <a href="{{ url_for('teleport') }}">Quantum Teleportation</a>
+  <a href="{{ url_for('ai') }}">AI in Quantum Computing</a>
+  <a href="{{ url_for('compute') }}">Quantum Computers</a>
+  <a href="{{ url_for('iot') }}">Iot with Quantum Computing</a>
+  <a href="{{ url_for('material') }}">Material science in Quantum Computing</a>
+  <a href="{{ url_for('tutorial') }}">Videos and Podcasts</a>
+  <a href="{{ url_for('tools') }}">Tools for Quantum Programming</a>
+</div>
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+
+
+<h1>AI IN QUNTUM COMPUTING</h1>
+
+<p align="RIGHT"><a href="{{ url_for('logout') }}" >Logout</a></p>
+
+<div class="w3-panel w3-white w3-card w3-display-container" style="margin-left: 0em;">
+<h3><a href="https://physics.aps.org/articles/v12/74">[ARTICLE 1]: Viewpoint: Neural Networks Take on Open Quantum Systems</a></h3>
+
+<p>Simulating a quantum system that exchanges energy with the outside world is notoriously hard, but the necessary computations might be easier with the help of neural networks.
+
+Neural networks are behind technologies that are revolutionizing our daily lives, such as face recognition, web searching, and medical diagnosis. These general problem solvers reach their solutions by being adapted or “trained” to capture correlations in real-world data. Having seen the success of neural networks, physicists are asking if the tools might also be useful in areas ranging from high-energy physics to quantum computing <a href="https://arxiv.org/pdf/1903.10563.pdf">[Machine learning and the physical sciences]</a>. Four research groups now report on using neural network tools to tackle one of the most computationally challenging problems in condensed-matter physics—simulating the behaviour of an open many-body quantum system [2–5]. This scenario describes a collection of particles—such as the qubits in a quantum computer —that both interact with each other and exchange energy with their environment. For certain open systems, the new work might allow accurate simulations to be performed with less computer power than existing methods.</p></div><br><br>
+
+<div class="w3-panel w3-white w3-card w3-display-container" style="margin-left: 0em;">
+<h3><a href="https://medium.com/computational-neuroscience/neuromorphic-hardware-trying-to-put-brain-into-chips-259638da2f12">[ARTICLE 2]: Neuromorphic Hardware: Trying to Put Brain Into Chips</a></h3>
+<p>Up until now, chip-makers have been piggybacking on the renowned Moore’s Law for delivering successive generations of chips that have more compute capabilities and are less power hungry. Now, these advancements are slowly coming to a halt. Researchers around the world are proposing alternative architectures to continue producing systems which are faster and more energy efficient. This article discusses those alternatives and reasons why one of them might have an edge over others in averting the chip design industry from getting stymied.</p></div><br><br>
+
+
+<div class="w3-panel w3-white w3-card w3-display-container" style="margin-left: 0em;">
+<h3><a href="https://physics.aps.org/articles/v12/74">[ARTICLE 3]: Thanks to AI, we know we can teleport qubits in the real world</a></h3>
+<p>Italian researchers have shown that it is possible to teleport a quantum bit (or qubit) in what might be called a real-world situation.
+And they did it by letting artificial intelligence do much of the thinking.
+The phenomenon of qubit transfer is not new, but this work, which was led by Enrico Prati of the Institute of Photonics and Nanotechnologies in Milan, is the first to do it in a situation where the system deviates from ideal conditions.</p></div><br><br>
+
+
+
+<div class="w3-panel w3-white w3-card w3-display-container" style="margin-left: 0em;">
+<h3><a href="https://www.weforum.org/agenda/2019/06/how-the-future-of-computing-can-make-or-break-the-ai-revolution/">[Article 4]: How the future of computing can make or break the AI revolution</a></h3>
+<p>When it comes to technology trends, AI has been undeniably leading the way in recent years and is expected to continue to do so for decades to come.
+From self-driving cars to predictive medicine and personalized learning, AI is increasingly shaping both practical and intimate aspects of our everyday lives, including matching us to our better halves.When talking about AI, we often are interested in the application use cases: what is AI going to enable next? In the race towards building powerful AI systems and applications, the public, including tech-domain experts, often dismisses the close interconnection between AI and computing. However, the AI revolution that we are witnessing could not have happened without the evolution of the computing hardware and of the computing ecosystem.</p></div><br><br>
+
+
+
+
+
+<img src="{{url_for('static', filename='ai_1.png')}}" alt=""><br>
+
+<p>In an open quantum system, one typically wants to find the “steady states,” which are states that do not evolve in time. A formal theory for determining such states already exists [6]. The computational difficulty arises when the system contains more than a few quantum particles. Consider a (closed) collection of N spins that can point either up or down. The amplitude of the wave function for a given spin configuration (say, up, down, up, up,…) is a complex number whose absolute value squared gives the probability of observing the configuration. To describe the entire spin system, a complex number has to be specified for each of the possible states. Simply storing this information for just 20 spins would take about 8 gigabytes of RAM, and the amount would double with each additional spin. Handling the same number of spins in an open system is even harder because the spins must be described by a “density matrix” with 2<sup>N</sup> × 2<sup>N</sup> matrix elements. The attraction of a neural network is that it can potentially approximate the wave function, or density matrix, with a lot less information. A neural network is like a mathematical “box” that takes as its input a string of numbers (a vector or tensor) and outputs another string. The box is a parameterized function, and its parameters are optimized for a given task. For the specific case of simulating an N-body quantum system, the neural-network function serves as a “guess” for the wave function, and the states of the N objects serve as inputs. Researchers then optimize the function or by minimizing a physical quantity that depends on the wave function. Once the right guess is in hand, it can be used to calculate other physical properties, and with far fewer than parameters.</p>
+
+<p>In a 2017 paper, Carleo and Troyer showed that a neural network called a restricted Boltzmann machine [7] could—with a small tweak—be used to represent states of a closed system of many interacting spins [8]. The input for this machine is a string of 0’s and 1’s—mimicking the up or down state of spins in an array—and its output is a complex number that provides the amplitude of the wave function. In effect, the restricted Boltzmann machine replaces the interactions between spins by “mediated” interactions with some “hidden spins” (Fig. 1).
+The four groups carry Carleo and Troyer’s approach to open quantum systems [2–5]. The steady states of such systems are described by the Gorini-Kossakowski- Sudarshan-Lindblad (GKSL) equation [8]. This equation looks similar to the regular Schrödinger equation, but it solves for the density matrix instead of a wave function, and it involves the operator L, which is effectively the Hamiltonian plus some energy-loss terms. The GKSL steady states satisfy, and to find them, the groups had to address three challenges. First, they had to design a neural network function that represents a density matrix. Second, they needed to define a “cost function.” This function expresses the di􀁷erence between the neural network and the true quantum state and, when minimized, yields the density matrix corresponding to the desired steady state. Finally, they had to find a way to perform this minimization numerically. Although they all worked independently, the four teams arrived at fairly similar solutions to these problems. Three of the teams—Hartmann and Carleo [3], Nagy and Savona [4], and Vicentini et al. [5]—followed an idea from a 2018 paper [9] and described the wave function for the quantum system and its environment by adding a set of “ancillary” spins to the restricted Boltzmann machine (Fig. 1). These extra spins ensure that the output of the neural network has the mathematical properties of a density matrix. Yoshioka and Hamazaki, however, derived the density matrix without the ancillary spins and, in turn, relied on a mathematical trick when using the matrix to calculate physical quantities the groups also varied in how they defined the cost function. Two teams used an indirect approach, based on a so-called Hermitian operator that has a guaranteed minimization procedure [2, 5]. The two other teams opted for a more direct approach that requires more complex minimization methods [3, 4]. Finally, all of the teams used some form of variational Monte Carlo scheme [9] for the minimization step. Each group tested their neural network approach by finding the steady states of popular toy models: the dissipative transverse-field Ising model in 1D [2, 5]; the XYZ model in 1D [2] and 2D [4]; and the anisotropic Heisenberg model in 1D [3]. Taking all the results together, the researchers considered system sizes that ranged from 4 to 16 spins. They also compared their steady-state solutions with those found from traditional approaches such as tensor networks and numerical integration, finding striking agreement. For one particular case, Hartmann and Carleo found that a solution required 40 fewer parameters than the tensor network approach [3], an encouraging sign for neural networks.</p>
+
+<p>Practitioners of machine learning are notorious for replacing theoretically motivated, carefully hand-crafted models with a one-size-fits-all model involving optimization techniques that are “blind” to the application. This approach can work embarrassingly well, and there is a good chance that neural networks will become established tools for treating some open quantum systems. Until then, these approaches need to prove their value beyond toy models—as has increasingly been done for the methods of closed quantum systems. For example, can the new approaches handle more spins, longer-range interactions, higher dimensions, the fermion “sign problem,” or quantum particles that are more complex than spins? Another unknown is whether a neural network ansatz can be adapted to specific physical settings, for example when simplifying symmetries in the system or environment are known. The ultimate toughness test would be to simulate a system whose dynamics retain a memory of the past by virtue of a strong interaction with the environment (non- Markovian dynamics). Capturing the relevant interaction, however, may ultimately require a quantum neural network, which is run by algorithms that are specifically designed for quantum computers.</p>
+
+<h1><a href="https://medium.com/computational-neuroscience/neuromorphic-hardware-trying-to-put-brain-into-chips-259638da2f12">[Article 2]: Neuromorphic Hardware: Trying to Put Brain Into Chips</a></h1>
+<p>Up until now, chip-makers have been piggybacking on the renowned Moore’s Law for delivering successive generations of chips that have more compute capabilities and are less power hungry. Now, these advancements are slowly coming to a halt. Researchers around the world are proposing alternative architectures to continue producing systems which are faster and more energy efficient. This article discusses those alternatives and reasons why one of them might have an edge over others in averting the chip design industry from getting stymied.
+<h3>What is Moore’s Law and its Dusk</h3>
+Moore’s law, or to put it differently — savior of chip-makers worldwide — was coined by Dr. Gordon Moore, the founder of Intel Corp, in 1965. The law states that the number of transistors on a chip would double every 2 years. But why the savior of chip-makers? This law was so powerful during the semiconductor boom that “people would auto-buy the next latest and greatest computer chip, with full confidence that it would be better than what they’ve got”, said former Intel engineer Robert P. Colwell. Back in the day writing a program with bad performance was not an issue as the programmer knew that Moore’s law would ultimately save him.</p>
+
+
+<p>Problem that we are facing today is, the law is nearly dead! Or to avert from offending Moore fans — as Henry Samueli, chief technology officer for Broadcom says -
+It’s graying, it’s aging, It’s not dead, but you’re going to have to sign Moore’s Law up for AARP.”
+As we are approaching the atomic scale, it has become difficult for chip-makers to further downsize the transistors. The industry has already started to feel the heat. Intel, in 2015, announced that its new generation chip would now be released in every 2.5 years. It has also indicated that transistors may keep shrinking only for next 5 years.</p>
+
+
+<p>So what is causing the long standing law to fail? It’s Quantum Mechanics, silly! Let’s delve a little deeper to understand the working of a processor. We all know that a processor understands only machine code. So, whatever it stores or processes is in the form of 1’s and 0’s. These states of 1 or 0 are retained by the logic gates which are in turn made up of transistors. The job of transistors is to regulate the flow of electrons (by creating a potential barrier) so as to hold a particular state in a logic gate. Now, as we go down to the scale of 1 nm = 10 atoms, it becomes difficult to regulate the electron flow. Even in the presence of a potential barrier, electron flow continues due to a phenomenon called Quantum Tunneling. As a result leakage current grows significantly making the architecture inefficient.</p>
+
+<h3>Alternate Avenues</h3>
+
+<p>Researchers and companies are trying to come up with alternatives to avoid hitting rock bottom in the realm of computer architectures. Former head of the manufacturing group of Intel had suggested that the company will be adopting new materials and altering the structure of the transistor to give added control to the current flowing. With Deep Learning progressing and new and complex algorithms being developed, there is more and more demand for the chips that can perform heavy matrix computations efficiently.</p>
+Following new areas are being explored by researchers around the globe:
+<ul>
+  <li>Quantum Computing: It harnesses the ability of a subatomic particle to exist in more than 1 state at any given time. Unlike conventional bits which can store either a 0 or a 1, quantum bits (qubits) can store much more information. This implies a quantum computer can store a lot more information than a conventional one using less energy.</li>
+  <li>Carbon Nanotubes: These are microscopic sheets of carbon rolled into cylinders and are being aggressively explored by IBM. In a paperpublished in journal Science, they described a new way of building transistors using carbon nanotubes which could be significantly smaller than silicon transistors we have today.</li>
+  <li>Parallel Architectures: This approach has been widely used in the past decade to circumvent the performance barrier. Highly parallel architectures (GPU) are being developed to carry out simultaneous operations. Unlike Von Neumann architecture which executes the instructions serially on a single core, GPU’s have concurrent threads running on multiple cores to speed up the process considerably. Focus is also shifting towards energy efficient FPGA to replace GPU.</li>
+  <li>Neuromorphic Hardware: It encompasses any electrical device which mimics the natural biological structures of our nervous system. The goal is to impart cognitive abilities to a machine by implementing neurons in silicon. Due to its much better energy efficiency and parallelism it is being considered as an alternative over conventional architectures and energy hungry GPUs.</li>
+</ul>
+<p>Among the above mentioned areas, quantum computing and carbon nanotubes are still in elementary stages of development. They have still not been rendered viable to completely replace silicon let alone their commercial production. GPU’s have been in use for a long time now but they consume a lot of energy. Neuromorphic hardware is also relatively in intermediate stages of development but provides a highly probable solution to the upcoming performance crisis.</p>
+
+<h3>Neuromorphic Hardware</h3>
+<p>The human brain is the most energy efficient and the lowest latency system existing on Earth. It processes complex information faster and in a far better way than any computer. This is largely due to its architecture which consists of dense neurons transmitting signals through their synapses efficiently. Neuromorphic Engineering aims at realising this architecture and performance in silicon. The term was coined by Carver Mead in late 1980s describing systems containing analog/digital circuits to mimic neuro-biological elements present in nervous system. A lot of research facilities have been investing in developing chips that can do the same.</p>
+
+
+<p>IBM’s neuromorphic chip — TrueNorth has 4096 cores each having 256 neurons and each neuron having 256 synapses to communicate with others. The architecture being very close to the brain, it is very efficient in energy. Similarly Intel’s Loihi boasts of 128 cores, each core having 1024 neurons. The APT group of University of Manchester recently revealed the world’s fastest supercomputer — SpiNNaker consisting only of neuromorphic cores. Brainchip is another company which is developing similar chips for applications in data center, cyber security and fin-tech. The Human Brain Project is a massive EU-funded project that’s investigating how to build new algorithms and computers that mimic the way the brain works</p>
+
+<p>All of these systems have one thing in common — all are highly energy efficient.
+TrueNorth draws 1/10,000th of the power density of a conventional Von Neumann processor.
+This gigantic difference is because of the asynchronous nature of the on-chip processing, like a human brain. Each neuron need not be updated at every time step. Only the ones which are in action require power. This is called event-driven processing and is the most important aspect for rendering neuromorphic systems viable as a suitable alternative for conventional architectures.</p>
+
+<h3>Spiking Neural Network</h3>
+<p>The dense network of neurons interconnected by synapses on a neuromorphic chip is known as Spiking Neural Network. Neurons communicate with each other by transmitting impulses through synapses. The above mentioned chips realise this network in hardware but there is a huge emphasis on simulating it in software as well to evaluate the performance or solve the problems of pattern recognition and other applications of deep learning.</p>
+
+
+<p>Spiking Neural Networks encode the information in temporal domain in the form of spike trains i.e the time difference between two consecutive spikes determine the properties in a network. The functioning of the most basic element of the network — a neuron, is governed by a differential equation. The input to a neuron is in the form of discrete spikes in time domain rather than continuous values. Due to these idiosyncrasies of an SNN the methodology used to train it is also different from the existing artificial neural networks. Instead of gradient descent, a more biologically plausible Hebbian Learning is used. It is also called Spike Time Dependent Plasticity (STDP).</p>
+
+
+<p>This all might seem esoteric at first and takes time to get the hang of the network dynamics of an SNN. Since this domain is still in its elemental stage, the documentation available is also not thorough.This series of blogs aims at developing an understanding of SNN from scratch with each element of the network explained in depth and implemented in Python. The existing libraries in Python for SNN will also be discussed.</p>
+
+
+<h1><a href="https://physics.aps.org/articles/v12/74">[Article 3]: Thanks to AI, we know we can teleport qubits in the real world</a></h1>
+<p>Italian researchers have shown that it is possible to teleport a quantum bit (or qubit) in what might be called a real-world situation.
+And they did it by letting artificial intelligence do much of the thinking.
+The phenomenon of qubit transfer is not new, but this work, which was led by Enrico Prati of the Institute of Photonics and Nanotechnologies in Milan, is the first to do it in a situation where the system deviates from ideal conditions.</p>
+<p>Moreover, it is the first time that a class of machine-learning algorithms known as deep reinforcement learning has been applied to a quantum computing problem.
+The findings are published in a paper in the journal Communications Physics.
+One of the basic problems in quantum computing is finding a fast and reliable method to move the qubit – the basic piece of quantum information – in the machine. This piece of information is coded by a single electron that has to be moved between two positions without passing through any of the space in between. 
+In the so-called “adiabatic”, or thermodynamic, quantum computing approach, this can be achieved by applying a specific sequence of laser pulses to a chain of an odd number of quantum dots – identical sites in which the electron can be placed.</p>
+<p>It is a purely quantum process and a solution to the problem was invented by Nikolay Vitanov of the Helsinki Institute of Physics in 1999. Given its nature, rather distant from the intuition of common sense, this solution is called a “counterintuitive” sequence.
+However, the method applies only in ideal conditions, when the electron state suffers no disturbances or perturbations.
+Thus, Prati and colleagues Riccardo Porotti and Dario Tamaschelli of the University of Milan and Marcello Restelli of the Milan Polytechnic, took a different approach.
+“We decided to test the deep learning’s artificial intelligence, which has already been much talked about for having defeated the world champion at the game Go, and for more serious applications such as the recognition of breast cancer, applying it to the field of quantum computers,” Prati says.
+Deep learning techniques are based on artificial neural networks arranged in different layers, each of which calculates the values for the next one so that the information is processed more and more completely. </p>
+<p>Usually, a set of known answers to the problem is used to “train” the network, but when these are not known, another technique called “reinforcement learning” can be used.
+In this approach two neural networks are used: an “actor” has the task of finding new solutions, and a “critic” must assess the quality of these solution. Provided a reliable way to judge the respective results can be given by the researchers, these two networks can examine the problem independently.
+The researchers, then, set up this artificial intelligence method, assigning it the task of discovering alone how to control the qubit.
+“So, we let artificial intelligence find its own solution, without giving it preconceptions or examples,” Prati says. “It found another solution that is faster than the original one, and furthermore it adapts when there are disturbances.”</p>
+<p>In other words, he adds, artificial intelligence “has understood the phenomenon and generalised the result better than us”.
+“It is as if artificial intelligence was able to discover by itself how to teleport qubits regardless of the disturbance in place, even in cases where we do not already have any solution,” he explains.
+“With this work we have shown that the design and control of quantum computers can benefit from the using of artificial intelligence.”</p>
+
+<h1><a href="https://www.weforum.org/agenda/2019/06/how-the-future-of-computing-can-make-or-break-the-ai-revolution/">[Article 4]: How the future of computing can make or break the AI revolution</a></h1>
+<p>When it comes to technology trends, AI has been undeniably leading the way in recent years and is expected to continue to do so for decades to come.
+From self-driving cars to predictive medicine and personalized learning, AI is increasingly shaping both practical and intimate aspects of our everyday lives, including matching us to our better halves. When talking about AI, we often are interested in the application use cases: what is AI going to enable next? In the race towards building powerful AI systems and applications, the public, including tech-domain experts, often dismisses the close interconnection between AI and computing. However, the AI revolution that we are witnessing could not have happened without the evolution of the computing hardware and of the computing ecosystem.</p>
+<h4>The relationship between AI and computing</h4>
+<p>AI in a nutshell aims at allowing computers to mimic human intelligence. One way to do so is machine learning (ML), consisting of a set of statistical techniques that allow machines to learn from data, instead of being explicitly programmed to perform certain tasks. The most famous ML techniques include regression models, decision trees and neural networks, consisting of adaptive systems of interconnected nodes modeling relationship patterns between input and output data. Multilayered neural networks are particularly relevant for performing complex tasks such as image recognition and text synthesis. These form a subset of machine learning referred to as deep learning (DL), due to the depth of the underlying neural networks. ML techniques in general, and DL techniques in particular, are data- and computing-heavy. A basic deep neural network classifying animal pictures into dogs and cats needs hundreds of thousands of classified animal pictures in training data and billions of iterative computations in order to mimic a four year’s old ability to discern cats from dogs. Data and computing represent in this sense the pillars for building high-performance AI systems.</p>
+
+<h3>The main computing trends shaping AI</h3>
+<ul>
+  <li>Moore’s law: Named after Intel co-founder Gordon Moore, Moore’s law states that the number of transistors per square inch in an integrated circuit (IC) has doubled every 18 months to two years since the mid-1960s. Thanks to Moore’s law, computers have become smaller and faster at an exponential rate, reducing computing costs by ~30% per year, allowing the execution of complex mathematical operations on small ICs, and paving the way towards embedded and ubiquitous computing.</li> 
+  <li>The internet of things (IoT): With more than 40 billion (mini)-computers expected to be connected to the internet by 2020, the IoT is enabling the collection of exabytes of text, voice, image and other forms of training data, feeding into ML and DL models, and increasing the accuracy and precision of these models.</li>
+  <li>The rise of application (and AI) specific computing hardware: A computer is composed of many processing units, each of which contains one or many cores or ICs. A CPU (central processing unit) represents the most standardized and general-purpose microprocessor that can be programmed and used for almost any purpose. Recent years have seen the emergence of new types of processing units including GPUs (graphics processing units) and TPUs (tensor processing units). A GPU or TPU ideally contains more cores than a CPU and also presents a different transistors topology at an integrated circuit (IC) level. Due to their specialized architecture, GPUs and TPUs are particularly suited for computing-intensive deep learning applications such as images processing and voice recognition, as well as unstructured text mining.</li>
+  <li>The era of exascale computing: Along with data explosion, the evolution of the computing hardware and of the computing needs of applications such as AI and blockchain have driven computing giants such as HPE to start building super-computers. Placed in centralized data centers, super computers are capable of at least one exaFLOPS, or a billion billion (i.e. a quintillion) calculations per second. Such capacity represents a thousand-fold increase over the first petascale computer that came into operation in 2008. China and the EU are also investing millions in the race towards exascale computing.</li>
+</ul>
+<h3>Challenges of the computing status quo</h3>
+<p>Due to the high availability and declining costs of in-house and on-demand cloud computing, computing has rarely been considered as a scarce resource when it comes to enabling the AI revolution. However, computer systems are facing many limitations that can slow the development of AI applications built on top. The main challenges include:</p>
+<ul>
+  <li>The end of Moore’s law: Due to physical limitations, transistors cannot go in size below a certain level, which is likely to invalid Moore's law sooner than we expect and limit the ability to infinitely shrink microprocessors.</li>
+  <li>Increasing data regulation: A speedy exascale processing of data in centralized super-computers requires the data to be stored close to the processors. The increasing appetite for data regulation worldwide, including the recent adoption of GDPR in Europe, is likely to make centralized data placement more difficult and to challenge the purpose of building super-computers in the first place.</li>
+  <li>The costs (and feasibility) of data transfer and storage: Building on the last point, the high volume of training data and the bandwidth costs associated with data transfer closer to centralized processors invite a redesign of computer memory and of underlying I/O (input/output) operations, as well as significant investments in the network capacity. Running centralized supercomputers also comes with OPEX and environmental costs, particularly in terms of power consumption and generating CO2 emissions.</li>
+  <li>Lack of a computing-supportive ecosystem: As more IT talent goes into tech giants or launches AI startups, the appetite for working for traditional computer manufacturers or for launching startups focused on developing new computing hardware is on the decline. Despite accelerating the prototyping of AI products, the emergence of high-level programming languages, APIs and libraries is contributing to a less nuanced understanding of computing architectures and basic computing operations, even among computer scientists.</li>
+</ul>
+<h3>The way forward</h3>
+<p>The regulatory constraints and the energy and bandwidth costs associated with centralized super-computing are likely to drive data storage and computing to the edge. Intel has already developed a USB stick that allows users to effectively carry out computer vision and image recognition on edge network devices; like smart cameras and augmented reality hardware.
+The imminent end of Moore’s law is likely to drive the emergence of more specialized computing architectures, focused on changing the way processing units and individual circuits are structured, in order to achieve performance gains without further shrinking the size of transistors or processors.</p>
+<p>On the other hand, a new form of computing, quantum computing, is progressively gaining more ground, although its practical implementation remains a challenge. Quantum computers rethink computing by leveraging the strange laws of quantum mechanics. Instead of using transistors designed around binary units that classical computers use, quantum computers employ “quantum bits” or “qubits”. Unlike bits, which are limited to being either 1 or 0 at all times, qubits can exist in “superposition”, this enables them to simulate multiple states at the same time. Another property of matter at quantum level, “entanglement”, means that multiple qubits can be connected through logic gates. The "superposition" and "entanglement" properties of quantum computing makes it possible to carry many operation streams in parallel both at the level of one "qbit" and many "qbits", thus making a quantum computer more suited to tackle complex computational problems, when compared to a classical computer. This being said, physically building a “universal” quantum computer remains extremely difficult in engineering terms. Creating and maintaining qubits requires stable systems under extreme conditions – for example, maintaining component temperatures very close to absolute zero.</p>
+
+<p>Encouraging more people to go into STEM and retaining tech talent will provide the computer manufacturing industry with the talent that it needs to disrupt itself and keep up with the needs of the AI revolution.</p>
+<p>Finally, when building ML models and writing algorithms, data scientists, computer scientists, ML engineers and AI practitioners should consider the least complex way to solve the problem at hand. Going for a complex neural network when a regression could have provided a good accuracy or running data pipelines on a daily basis when a weekly data update could have been enough are real examples of how tech talent is wasting a scarce resource such as computing on a daily basis. Promoting computing-friendly practices within the tech ecosystem has become a necessity for the tech industry to sustain its own growth, namely on the AI front.</p>
+
+
+
+{% for post in posts%}
+<div class="w3-panel w3-white w3-card w3-display-container" style="margin-left: 0em;">
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ post.author }}</a>
+      <small class="text-muted">{{ post.date_posted }}</small>
+    </div>
+    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+<h2>LINKS</h2>
+<li><a href="https://physics.aps.org/articles/v12/74">https://physics.aps.org/articles/v12/74</a></li> 
+<li><a href="https://medium.com/computational-neuroscience/neuromorphic-hardware-trying-to-put-brain-into-chips-259638da2f12">https://medium.com/computational-neuroscience/neuromorphic-hardware-trying-to-put-brain-into-chips-259638da2f12</a></li>
+<li><a href="https://cosmosmagazine.com/technology/thanks-to-ai-we-know-we-can-teleport-qubits-in-the-real-world">https://cosmosmagazine.com/technology/thanks-to-ai-we-know-we-can-teleport-qubits-in-the-real-world</a></li>
+<li><a href="https://www.weforum.org/agenda/2019/06/how-the-future-of-computing-can-make-or-break-the-ai-revolution/">https://www.weforum.org/agenda/2019/06/how-the-future-of-computing-can-make-or-break-the-ai-revolution/</a></li>  
+
+</div>
+</body>
+</html>
