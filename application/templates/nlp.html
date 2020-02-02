@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Natural Language Processing</h1>
+<p>This page demostrates the capability of the Natural Language processing using Deep learning techniques</p>
+<br>
+<br>
+<div class="container">
+	<div style="border: 1px solid gainsboro; border-radius:20px;">
+	    <form style="width: 80%; margin: auto; " method="POST" action="">
+	        {{ l_translate.hidden_tag() }}
+	        <fieldset class="form-group">
+	            <legend class="border-bottom mb-4">LANGUAGE TRANSLATION TOOL</legend>
+				<div class="form-group">
+	            	 {{ l_translate.models.label(class="form-control-label")  }}
+	            	  {{ l_translate.models  }}
+	            </div>
+				<div class="form-group">
+	            	 {{ l_translate.languages.label(class="form-control-label")  }}
+	            	  {{ l_translate.languages  }}
+	            </div>
+	            <div class="form-group">
+	            	 {{ l_translate.input_lang_text.label(class="form-control-label")  }}
+	            	  {{ l_translate.input_lang_text(class="form-control form-control-lg" )  }}
+	            </div>
+	            <div class="form-group">
+	    			{{ l_translate.lang_submit(class="btn btn-outline-info") }}
+				</div>
+				<div class="form-group">
+	            	 {{ l_translate.output_lang_text.label(class="form-control-label")  }}
+	            	  {{ l_translate.output_lang_text(class="form-control form-control-lg" )  }}
+	            </div>
+
+
+
+			</fieldset>
+	    </form>
+	</div>
+</div>
+
+
+<h1> NLP Processing section </h1>
+
+<p> This section contains NLP Processing section. For now this section takes the data which is typed in the section and will translate to required language. In future this will take data from the microphone to read the data and convert to the required language.  </p>
+
+<p> For this to happen first we need to have code to collect the speech and convert to text and also provide the speech for the given text </p>
+<br>
+<br>
+
+
+{% endblock content %}

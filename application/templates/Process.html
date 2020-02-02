@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+
+<script>
+
+	var source = new EventSource("/progress");
+	source.onmessage = function(event) {
+		$('.progress-bar').css('width', event.data+'%').attr('aria-valuenow', event.data);
+		$('.progress-bar-label').text(event.data+'%');
+
+		if(event.data == 2652){
+			source.close()
+		}
+	}
+	</script>
+
+
+{% block content %}
+<!--<div class="border-top pt-3">-->
+<!--<small class="text-muted">-->
+    <!--Do not have an account <a class ="ml-2" href="{{ url_for('register')}}"> Register Here </a>-->
+
+<!--</small>-->
+<!--</div>-->
+	<br><br>
+	<div class="container">
+	<div style="border: 1px solid gainsboro; border-radius:20px;">
+	    <form style="width: 80%; margin: auto; " method="POST" action="">
+	        {{ ProcessForm.hidden_tag() }}
+	        <fieldset class="form-group">
+	            <legend class="border-bottom mb-4">EXTRACT FILES FROM FOLDERS</legend>
+	            <div class="form-group">
+	            	 {{ ProcessForm.extractippath.label(class="form-control-label")  }}
+	            	  {{ ProcessForm.extractippath(class="form-control form-control-lg" )  }}
+	            </div>
+	             <div class="form-group">
+	            	 {{ ProcessForm.extractoppath.label(class="form-control-label")  }}
+	            	  {{ ProcessForm.extractoppath(class="form-control form-control-lg" )  }}
+	            </div>
+	            <div class="form-group">
+	    			{{ ProcessForm.extractsubmit(class="btn btn-outline-info") }}
+				</div>
+				</fieldset>
+	    </form>
+	</div>
+	<br><br>
+	<div style="border: 1px solid gainsboro; border-radius:20px;">
+ 		<form style="width: 80%; margin: auto;" method="POST" action="">
+        	{{ ConvertForm.hidden_tag() }}
+        	<fieldset class="form-group">
+            <legend class="border-bottom mb-4">CONVERT DICOM TO OTHER FORMATS</legend>
+	            <div class="form-group">
+	            	 {{ ConvertForm.convertippath.label(class="form-control-label")  }}
+	            	  {{ ConvertForm.convertippath(class="form-control form-control-lg" )  }}
+	            </div>
+	             <div class="form-group">
+	            	 {{ ConvertForm.convertoppath.label(class="form-control-label")  }}
+	            	  {{ ConvertForm.convertoppath(class="form-control form-control-lg" )  }}
+	            </div>
+	             <div class="form-group">
+	            	 {{ ConvertForm.imagelabel.label(class="form-control-label")  }}
+	            	  {{ ConvertForm.imagelabel(class="form-control form-control-lg" )  }}
+	            </div>
+
+	            {{ ConvertForm.FileFormat.label }} {{ ConvertForm.FileFormat }}
+
+	            <div class="form-group">
+	            	{{ ConvertForm.convertsubmit(class="btn btn-outline-info") }}
+	        	</div>
+	        	<label class="radio-inline">
+
+        	</fieldset>
+    	</form>
+    </div>
+    	<br><br>
+    	<div style="border: 1px solid gainsboro; border-radius:20px;">
+ 		<form style="width: 80%; margin: auto;" method="POST" action="">
+        	{{ PackageForm.hidden_tag() }}
+        	<fieldset class="form-group">
+            <legend class="border-bottom mb-4">PACKAGE DATA FOR MODEL</legend>
+	             <div class="form-group">
+	            	 {{ PackageForm.packageoppath.label(class="form-control-label")  }}
+	            	  {{ PackageForm.packageoppath(class="form-control form-control-lg" )  }}
+	            </div>
+	            {{ PackageForm.train_vs_test.label }} {{ PackageForm.train_vs_test }}	            
+	            <div class="form-group">
+	            	{{ PackageForm.packagesubmit(class="btn btn-outline-info") }}
+	        	</div>
+        	</fieldset>
+    	</form>
+    </div>
+
+
+    	<div class="progress" style="width: 50%; margin: 50px;">
+		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+			<span class="progress-bar-label">0%</span>
+		</div>
+	</div>
+
+    </div>
+{% endblock content %}
+

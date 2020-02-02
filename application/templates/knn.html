@@ -1,0 +1,279 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+<div>
+<h1>K-NEAREST NEIGHBOUR</h1>
+<p>The pattern recognition, the k-Nearest Neighbours algorithm (k-NN) is a non-parametric method used for
+classiffication and regression. In both cases, the inputs consists of the k closest training examples in the
+feature space. The output depends on whether k-NN is used for classiffication or regression.</p>
+<h2>Behaviour</h2>
+<p>This function generally shows its behvaiour as shown below:</p>
+<h2>Code</h2>
+<p>Code for this function is provided in below link:</p>
+<h2>Example</h2>
+<p>Example usage of the Logistic Regression Model</p><br>
+<canvas id="chart" width="600" height="400"></canvas>
+ 
+<script>
+   // bar chart data
+   var barData = {
+   labels : [{% for item in labels1 %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            bezierCurve : false,
+            data : [{% for item in values1 %}
+                      {{item}},
+                    {% endfor %}]
+      }]
+   }
+ 
+    Chart.defaults.global.animationSteps = 50;
+    Chart.defaults.global.tooltipYPadding = 16;
+    Chart.defaults.global.tooltipCornerRadius = 0;
+    Chart.defaults.global.tooltipTitleFontStyle = "normal";
+    Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+    Chart.defaults.global.animationEasing = "easeOutBounce";
+    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.scaleLineColor = "black";
+    Chart.defaults.global.scaleFontSize = 16;
+ 
+   // get bar chart canvas
+   var mychart = document.getElementById("chart").getContext("2d");
+ 
+   steps = 10
+   max = 10
+   // draw bar chart
+   
+   var BarChartDemo = new Chart(mychart).Bar(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true,
+        bezierCurve: false,
+ 
+   }); 
+ 
+ </script> 
+ </div>
+
+ <div>
+<h1> CHART GRAPH </h1>
+<canvas id="bar_chart" width="600" height="400"></canvas>
+    
+
+ <script>
+   // bar chart data
+   var barData = {
+   labels : [{% for item in labels1 %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            bezierCurve : false,
+            data : [{% for item in values1 %}
+                      {{item}},
+                    {% endfor %}]
+      }]
+   }
+ 
+    Chart.defaults.global.animationSteps = 50;
+    Chart.defaults.global.tooltipYPadding = 16;
+    Chart.defaults.global.tooltipCornerRadius = 0;
+    Chart.defaults.global.tooltipTitleFontStyle = "normal";
+    Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+    Chart.defaults.global.animationEasing = "easeOutBounce";
+    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.scaleLineColor = "black";
+    Chart.defaults.global.scaleFontSize = 16;
+ 
+   // get bar chart canvas
+   var bar_chart = document.getElementById("bar_chart").getContext("2d");
+ 
+   steps = 10
+   max = 10
+   // draw bar chart
+   
+   var BarChartDemo = new Chart(bar_chart).Line(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true,
+        bezierCurve: false,
+ 
+   }); 
+ 
+ </script> 
+
+
+ <div>
+<h1> PIE GRAPH </h1>
+<canvas id="pie_chart" width="600" height="400"></canvas>
+    
+
+ <script>
+   // bar chart data
+   var barData = {
+   labels : [{% for item in lables1 %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            bezierCurve : false,
+            data : [{% for item in values1 %}
+                      {{item}},
+                    {% endfor %}]
+      }]
+   }
+ 
+    Chart.defaults.global.animationSteps = 50;
+    Chart.defaults.global.tooltipYPadding = 16;
+    Chart.defaults.global.tooltipCornerRadius = 0;
+    Chart.defaults.global.tooltipTitleFontStyle = "normal";
+    Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+    Chart.defaults.global.animationEasing = "easeOutBounce";
+    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.scaleLineColor = "black";
+    Chart.defaults.global.scaleFontSize = 16;
+ 
+   // get bar chart canvas
+   var pie_chart = document.getElementById("pie_chart").getContext("2d");
+ 
+   steps = 10
+   max = 10
+   // draw bar chart
+   
+   var BarChartDemo = new Chart(pie_chart).Radar(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true,
+        bezierCurve: false,
+ 
+   }); 
+ 
+ </script> 
+
+</div>
+
+ <div>
+<h1> PIE GRAPH </h1>
+<canvas id="new_chart" width="600" height="400"></canvas>
+<h1>Data from the form</h1>
+    <h1>'{{values1}}'</h1>
+
+
+ <script>
+   // bar chart data
+   var barData = {
+   labels : [{% for item in labels1 %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            bezierCurve : false,
+            data : [{% for item in values1 %}
+                      {{item}},
+                    {% endfor %}]
+      }]
+   }
+ 
+   // get bar chart canvas
+   var new_chart = document.getElementById("new_chart").getContext("2d");
+    
+   // draw bar chart
+   var BarChartDemo = new Chart(new_chart).Line(barData); 
+   //var BarChartDemo = new Chart(ctx, {type: 'line',data: barData,}); 
+ 
+ </script> 
+
+</div>
+
+
+ <div>
+    <h1> DOUGHNUT CHART </h1>
+<canvas id="doughnut_chart" width="600" height="400"></canvas>
+<p id="caption">The chart is displaying a simple line chart.</p>
+ <script>
+    // Global parameters:
+      // do not resize the chart canvas when its container does (keep at 600x400px)
+      Chart.defaults.global.responsive = false;
+   // bar chart data
+   var barData = {
+   labels : [{% for item in labels1 %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [{
+            label: '{{ legend1 }}',
+            fill: true,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data : [{% for item in values1 %}
+                      {{item}},
+                    {% endfor %}],
+            spanGaps: false
+        }]
+   }
+ 
+     // get chart canvas
+      var ctx = document.getElementById("doughnut_chart").getContext("2d");
+
+      // create the chart using the chart canvas
+      var doughnut_chart = new Chart(ctx, {type: 'doughnut',data: barData,});
+ 
+ </script> 
+
+</div>
+{% endblock content %}

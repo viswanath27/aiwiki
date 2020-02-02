@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+        - My Webpage
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tree_style.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+    {% endblock %}
+</head>
+<body>
+
+<div class="headerLayout">
+    <!-- <p align="RIGHT"><a href="{{url_for('logout')}}">Logout</a></p>
+    <p align="RIGHT"><a href="{{url_for('register')}}">Register</a></p>
+    <p align="RIGHT"><a href="{{url_for('login')}}">Login</a></p> -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+                {% if current_user.is_authenticated %}
+              <a class="nav-item nav-link" href="/">Home</a>
+              <a class="nav-item nav-link" href="{{url_for('dataanalysis')}}">Analysis</a>              
+                {% endif %}
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
+                    <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+</div>
+<div  class="sidenav">
+
+</div>
+
+
+<div class="layoutMain" id="main">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category,message in messages %}
+                <div class="alert alert-{{category}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block content %}
+    {% endblock content%}
+</div>
+
+<div class="footerLayout"></div>
+
+
+</body>
+</html>

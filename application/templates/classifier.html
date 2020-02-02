@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h1>CLASSIFIER</h1>
+    <p>This page provides the introduction of this site</p>
+
+    <p>This section gives the information on Classier and its variants.
+Difference between Classiffication and Rgression is, Classiffication is about predicting a label and Regression
+is about predicting a Quantity.</p>
+<img src="{{url_for('static', filename='classifier_info.png')}}" alt="" align="middle" width="1500" height="400"><br>
+
+<p>Classiffier is generally achieved with following algorithms
+	<ul>
+<li><a href="{{ url_for('gen_lin_models') }}" >Generalized Linear Models</a></li>
+<li><a href="{{ url_for('lin_disc_ana') }}" >Linear Quadratic Discriminant Analysis</a></li>
+<li><a href="{{ url_for('kernel_ridge') }}" >Kernel Ridge Regression</a></li>
+<li><a href="{{ url_for('svm') }}" >Support Vector Machine</a></li>
+<li><a href="{{ url_for('sto_grad_descent') }}" >Stochastic Gradient Descent</a></li>
+<li><a href="{{ url_for('near_neig') }}" >Nearest Neighbours</a></li>
+<li><a href="{{ url_for('gauss_process') }}" >Gaussian Process</a></li>
+<li><a href="{{ url_for('cross_validation') }}" >Cross Decomposition</li>
+<li><a href="{{ url_for('naive_bayes') }}" >Naive Bayes</li></a>
+<li><a href="{{ url_for('decision_tree') }}" >Decision Trees</a></li>
+<li><a href="{{ url_for('ensemble_methods') }}" >Ensemble methods</a></li>
+<li><a href="{{ url_for('multiclass_multilabel_algos') }}" >Multiclass Multilabel Algorithms</a></li>
+<li><a href="{{ url_for('feature_selection') }}" >Feature Selection</a></li>
+<li><a href="{{ url_for('semi_super') }}" >Semi Supervisied</a></li>
+<li><a href="{{ url_for('isotonic_regression') }}" >Isotonic regression</a></li>
+<li><a href="{{ url_for('probability_calibration') }}" >Probability Calibration</a></li>
+<li><a href="{{ url_for('neural_network') }}" >Neural Network Models</a></li>
+</ul>
+</p>
+    
+<h1> Linear regressoin using Least Squares</h1>
+	<p>This will give the approach to calculate the linear regression using Least squares mechanism. Simple Linear
+Regression is one variable dependent on one variable. If there are more than two variables it is Multiple
+Linear Regressions.</p>
+
+</div>
+{% endblock content %}

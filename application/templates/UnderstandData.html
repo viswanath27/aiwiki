@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h1>Understand your data</h1>
+In this chapter you discovered the importance of describing your dataset before you start work on your ma-
+chine learning project. You discovered 7 dierent ways to summarize your dataset using Python and Pandas:
+ Peek At Your Data.
+ Dimensions of Your Data.
+ Data Types.
+ Class Distribution.
+ Data Summary.
+ Correlations.
+ Skewness.
+Peek your data
+It seems that looking at the data is very good idea and there is no substitute for it. Lets see by looking at
+the data what we can really understand.
+1) Understand in what range numbers are there.
+2) Identify the relations if any.
+3) Identify is you need any data pre-processing which is next step.
+Dimensions
+Understand the dimensions of your data.
+1) What if there are many dimensions to the data.
+2) What if data has less number of dimensions.
+Lesser dimensions are easy to handle and understand, but the risk is, we may not really have the consolidated
+input on which prediction is made.
+Higher dimension data will be good to analyze that may have risk of getting into unwanted decision or mis-
+guiding basically. Also this may take more time and computation than ideally needed some times. If there
+are too many columns (Features) than algorithm will give poor performance f"Curse of Dimensionality"g
+So we should rst understand what is the optimal values of the dimensions for a data so as to proceed with
+predictions.
+Data Types
+Ideally we should know what are all the data types, either int or 
+oat. all of the data types should be same.
+If they are dierent we need to convert them to one type. What is the best way to show the data, how to
+interconvert them.
+Descriptive Statistics
+describe() in pandas will give you 8 type of statistical properties of each attribute. They are :
+ Count : All data should be of same count, will give problem complexity opinon
+ Mean :
+ Standard Deviation
+ Minimum Value
+ 25th Percentile
+ 50th Percentile (Median) : This is the all data sorted and middle one is Median, this will give the
+middle of the dataset spread.
+ 75th Percentil
+ Maximum value
+This will give the picture of data how it is distributed, here the best thing is we should know each column
+meaning and relate the distribution, if we see anomoly this will help us to intutively adjust the data. We
+should rst relate the meaning of the data type and its values (int, 
+oat, varying from 0-1 or more than one,
+etc). This way we remember the data picture.
+One should know the min and max value of each attribute generally to avoid any false positives.
+We should start looking at the independent contribution of variable to out come. Once that is done we can
+see how best combined attributes are leading to the outcome.
+Classication Distribution
+If the training has more samples for diabetes and less samples for non-diabetes case this may lead to some
+imbalance.
+Correlation
+We need to nd the correlation of each attribute to output and combined parameters to the output.
+Skew
+This will correlate each column data compared across the gaussian distribution. This will give the spread of
+the data, what are we getting of this spread study.
+    </div>
+{% endblock content %}

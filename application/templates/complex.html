@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="main">
+
+
+<h1>MACHINE LEARNING Complex</h1>
+    <h2> Introduction</h2>
+<p>This document provides the details of all models which are generally used as part of the machine learning
+domain. In general machine learning is all about making predictions and classiffications. Original data is training data
+    which is used to create the model and can be used to perform the predictions. Fitting the training data well and
+    making poor predections is called as "Bias-Variance Trade off".</p>
+    <h2>CROSS VALIDATION</h2>
+    <p>Cross validation is to segregate the data between Training and Testing eectively so that we do not land
+up in bad models and wrong results. It will segragate the data into chunks of 25% and will use 3 chunks
+and one other chunk to see how the model is preforming it will keep track of this results and will change
+the chunck to new between training and testing data. Once this is done for all the methods it will have he
+results of the how best the model performed for the dierent sets of the training and test data chuncks. We
+simply some times get to know that some of the algorithms have the best accuracy to predict the results
+between the training and test data. This algorithm or model can be used for making future predictions. If
+we divide the data in to 4 blocks it is called Four-Fold Cross Validation one can choose the number of
+blocks arbitrarily. In general data is divided in to 10 blocks also can be called as Ten-Fold Cross Validation.
+If an algorithm has the tuning parameter. This parameter is not estimated but just guessed. (Ex: Ridge
+regression has tuning parameter). In these cases we can use Ten-Fold Cross Validation to nd the best
+        tuning parameter for the algorithm.</p>
+<h2>CONFUSION MATRIX</h2>
+    <p>Once the training and testing of the data is done for more than one algorithm, there can be an matrix which
+can be created representing, Actuals vs Predicted. The rows of this matrix will have pridicted values and
+columns will have the actuals. Suppose if for an example there are two outcomes (ex: like heart disease
+present or not). The confusion matrix positions [0,0] and [1,1] will be True positives and True Negatives
+repsectively. Position [1,0] will indicate as False Negatives. False Negatives means when a patient has
+heart disease but the algorithm said they didn't. lastly position [0,1] will show False Positives. This means
+the patients were not having heart disease but the algorithm says they have heart disease.
+Following are the four options which are generally present in Confusion Matrix.</p>
+    1) Ture Positives [TP]
+Has disease and predicted as diseased.
+2) Ture Negatives [TN]
+Does not have diseases and are also predicted as not having disease.
+3) False Positives [FP]
+Does not have disease but predicted as having disease.
+4) False Negatives [FN]
+Has Disease but not predicted as having disease.
+In general matrix will look like below.
+
+TP FP
+FN TN
+
+9
+    <h2> BIAS AND VARIANCE</h2>
+    <p>The inability of Linear Regression to t the data with striaght line is called Bias. The best t like squiggly
+line may have very little bias. We can compare how the striaght line and squiggly line can t the data set by
+calculating their sums of squares. Measure the distances from the line and the data, square them and add
+them up. For a squiggly line the distances between the line and data is all zeros. But for the striaght line the
+square add up to some value. So the squiggly line wins the contest. If we calculate the sum of the squares
+for the testing set, in this case striaght line best ts the testing set than the squiggly line. Striaght line
+wins.The dierence in ts between the datasets is called Variance. Striaght lines will get good predictions
+but not great predictions. But they will be consistent in thier predictions. Squiggly line best ts the training
+set but not the testing data set this is called as "Over t". In machine learning the ideal algorithm has
+low bias and can accurately model the true relationship and it has low variability by producing consistent
+perdictions across dierent datasets.This is done by nding the sweet spot between a simple model and a
+complext model. Three commonly used methods to nd the sweet spot between simple and complicated
+models are regularization,boosting, bagging.</p>
+
+    <h2>ROC & AUC</h2>
+    <p>For a logistic regression we have to come up with a threshold of probability so that we can classify the samples
+as obese or not obese. This probability or threshold line will depend on the use case of the problem. Can
+we move the threshold line to dierent values and see how is the confusion matrix leading to. If we move
+the threshold such that each set of the data point on the threshold line than we will have so many confusion
+matrix, this is confusing.
+Instead of ROC graphs provides the simple way to summarize all the information. In ROC graph y-axis will
+show True Positive or (Sensitivity) and x axis will be Flase Positive Rate (1 - Specicity) .</p>
+
+    <h2>ROC & AUC CALCULATION</h2>
+    <p>
+        If we have better AUC for the Logistic regression than the random forest we can possibly use the Logistic
+regression.
+There are other methods to do same analysis. Ex Precision can be replaced with Flase Positive Rate.
+We need to get the data set and perform a simple calculation with the code and corresponding graph to the
+dataset.
+    </p>
+</div>
+{% endblock %}

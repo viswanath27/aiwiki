@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="main">
+    <h1>PRINCIPLE COMPONENT ANALYSIS</h1>
+    <p>Validating the model with the same data which is used for training is atmost blunder as this would always
+lead to the correct result and this kind of models will fail to predict when new data is presented. This
+situation is called overtting.
+This Method transforms variables to a new variables from the linear combination of original variables. These
+new variables are known as principle components.This is orthogonal linear transformation that transforms
+data to a new coordinate system. This new coordinate system is such that greatest variance by some projec-
+tion of the data lies on the rst principle component. The second greates variance is on the second component
+and so on. The variance is the measure of how spread out the data is. For example if we look at the variance
+of the hieght of the team of Basket ball players it would be pretty low as most of them will be same hieght.
+But if I add the high school team hieght data to it variance will be high. Similarly PCA is variance maxi-
+mizing excercise. It projects the original data into a direction that maximizes the variance. Some times if
+take PCA it may seem that rst PCA component is having all the variance and consecutive components do
+not have siganicant information. But if we standardize the data than we understand the signicance of the
+all the PCA components. Standardizing the data means bringing the data to a common unit scale(example:
+grams for everything but not kilograms and grams).This means that data should have mean of 0 and variance
+of 1.Variance here is computed by standard deviation squared.Once data is standardized we perform Eigne
+        decomposition.</p>
+
+    <h2>APPROACH</h2>
+    <p>
+        [STEP : 1] Standardize the data.
+[STEP : 2] Use the standardized data to generate a covariance matrix (or perform Singular Vector
+Decomposition).
+[STEP : 3] Obtain eigenvectors (principal components) and eigenvalues from the covariance matrix. Each
+eigenvector will have a corresponding eigenvalue.
+[STEP : 4] Sort the eigenvalues in descending order.
+[STEP : 5] Select the k eigenvectors with the largest eigenvalues, where k is the number of dimensions
+used in the new feature space (kd).
+[STEP : 6] Construct a new matrix with the selected k eigenvectors.
+    </p>
+    <p>
+        PCA Tips.
+1) Scaling your data
+2) Centering your data
+3) How many principle components you should expect to get
+TIP 1. Make sure variables are on the same scale. if not scale them. Standard practice is divide each
+variable with its standard deviation.
+TIP 2. Make sure your data is centered. Not every algorithm does the same. If PCA is done using SVD
+without centering your PCs will not be what you expected.
+TIP 3. Max PCs can be max as the number of categories which we have in our data set, but that the rst
+few will have the maximum information in it.
+    </p>
+</div>
+{% endblock %}

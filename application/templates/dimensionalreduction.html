@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h1>DIMENSIONALITY REDUCTION</h1>
+
+This section explains about the dimensionality reduction. This should in general give us information of when
+should this be applied. Applying this will lead what sort of results. If there is a reduction in demisions
+what is the information which is lost in this process. Some times data will be in huge multi dimensions and
+will lead to over tting problem. To handle this kind of scenarios we can reduce the unwanted dimensions
+(considered as noise) to get reasonably good results. This will help us easily apply the learning algorithms
+and can solve the problem with lower computation, how ever we should really know which dimensions are
+important so that we should not miss out important dimension to lead to worng results. This can be thoughts
+as two topics as Feature Selection and Feature Extraction.
+Feature Selection
+This all about nding the most relevant features to a problem. This can be done with intuition or some time
+let the model decide by itself which features are important DEEP LEARNING
+Feature Extraction
+Extraction means having new dimension of data after transforming higher dimension problem to lower di-
+mension. PCA can be majorly used for this purpose.
+1) PCA : PCA is popular technique to transform a dataset onto a lower dimensional subspace for visualiza-
+tion and futher exploration. Principal components are Eigen paris, they describe the direction in the original
+feature space with the greatest variance. The variance is the measure of how spread out the data is.
+2) Truncated SVD and LSA
+3) Dictionary Learning
+4) Factor Analysis
+5) Independent Component Analysis
+6) Non Negative Matrix Factorization
+7) Latent Dirichlet Allocation
+Unless we know exactly when each of this methods are used and why they are used for specic use-cases it
+means that we have not understood them fully. Once we understand them we should be able to provide the
+new examples of these approaches.
+PCA
+PCA can be used for
+Truncated SVD and LSA
+PCA can be used for
+Dictionary Learning
+PCA can be used for
+Factor Analysis
+PCA can be used for
+Independent Component Analysis
+PCA can be used for
+Non Negative Matrix Factorization
+PCA can be used for
+Latent Dirichlet Allocation
+PCA can be used for
+
+    <p>Deep learning is the concept which is majorly inherited from Brian functionality, which has lots of Neurons
+and connection between them. Single Neuron by itself does not make much but when lots of them combined
+will be make it intelligent.</p>
+<p>A sample neuron is visualized as below.</p>
+<img src="{{url_for('static', filename='neuron.png')}}" alt="" align="middle" width="400" height="200"><br>
+<p>Deep learing consists of majorly artificial neural networks that are modelled on similar networks present in
+the human brian. As travesers the layers each layer processes an aspect of data and removes the outliers,
+spots, familiar entities and produce the final output.</p>
+<br>
+<img src="{{url_for('static', filename='ANN.jpeg')}}" alt="" align="middle" width="300" height="200"><br>
+<br>
+<ul>
+<li>1) Input Layer : Does nothing but taking the input and passing it to the next layers.</li>
+<li>2) Output Layer : this is predicted feature, will depend on how many features we want to predict.</li>
+<li>3) Hidden Layers : These layers apply transformations to the input before passing to its next layers.</li>
+</ul>
+<p>As network is getting trained, wieghts get trained to make model more predictive.
+Weights are generally initialized to some random numbers and they will be in range of 0 and 1.</p>
+<br>
+
+<h2>Feedforward Deep Networks</h2>
+<p>Feed forward supervised learning is also called as Multi-Layer Perceptron(MLP). It has one hidden layer and
+each neuron is connected to other neuron. This network processes the input upward activating neurons as it goes to finally produce an output value.</p>
+
+<img src="{{url_for('static', filename='FNN.png')}}" alt="" align="middle" width="400" height="300"><br>
+
+<h2>Activiation Function</h2>
+An activation function is a mapping of summed weighted input to the output of the neuron. It is called
+an activation/transfer function because it governs the inception at which the neuron is activated and the
+strength of the output signal.<br><br>
+<img src="http://latex.codecogs.com/gif.latex?Y = \sum(weight*input) + bias" border="0"/><br><br>
+
+<p>We have many activation functions out of which most used are relu, tanh, softplus
+Below is the cheetsheet.</p><br><br>
+
+<img src="{{url_for('static', filename='activation_functions.png')}}" alt="" align="middle" width="800" height="600"><br><br>
+
+<h2>Back propogation</h2>
+<p>The predicted value is compared to the expected output and an error is calcualted using a function. This
+error is propogated back within the whole network (one layer at time) and weigths are updated according to
+the value that they contributed to the error. This is called as Back-propogation algorithm. This process is
+repeated for all of the examples in your training dataset. One round of updating the network for the entire
+training dataset is called as an epoch. A network may be trained for tens, hundreds or many thousands of
+epochs.</p>
+
+<img src="{{url_for('static', filename='bp.png')}}" alt="" align="middle" width="500" height="300"><br>
+
+<h2>Cost Function and Gradient Descent</h2>
+<p>The cost function is the measure of "how good" a neural network did for its given training input and the
+expected output. It may also depend on weights and bias.
+A cost function is single-valued, not a vector because it rates how well the neural network performed as a
+whole. Using the Gradient Descent optimization algorithm, the weights are updated incrementally after each
+epoch.</p>
+Compatible Cost Function
+Sum of squared errors (SSE)
+<p>
+$$J(w) = 1/2 ((target)^i - (output)^i)^2$$
+</p>
+
+<h2> Usecase</h2>
+<h2> Example</h2>
+<h2> Code</h2>
+<h2> Links </h2>
+<p>Following section has all the links from which the above content is been understood and presnted.</p>
+<ul>
+<li><a href="https://towardsdatascience.com/deep-learning-with-python-703e26853820">1. https://towardsdatascience.com/deep-learning-with-python-703e26853820</a></li>
+</ul>
+<h2> Conclusion </h2>
+</div>
+{% endblock content %}

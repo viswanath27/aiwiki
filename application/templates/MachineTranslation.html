@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1> MACHINE TRANSLATION </h1>
+This model is based on Seq2seq model for Spanish to English translation.Attention methods focuses on the
+important word for the given sentences.
+Following are the steps take once the dataset is downloaded.
+<ol>
+<li>Add start and end tokens to each sentence</li>
+<li>Clean the sentences by removing special characters</li>
+<li>Create the word index and reverse word index (dictonary mapping from word->id and id->word)</li>
+<li>Pad each sentence with max length</li>
+</ol>
+Encoder and Decoder Model
+Details of this model implementation are provided in this link.
+
+{% endblock content %}

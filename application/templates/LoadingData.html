@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h1>Loading Data</h1>
+In this chapter you discovered how to load your machine learning data in Python. You learned three specic
+techniques that you can use:
+ Load CSV Files with the Python Standard Library.
+ Load CSV Files with NumPy.
+ Load CSV Files with Pandas.
+File Header Feature
+Generally I recommend that you load your data with Pandas in practice and all subsequent examples in this
+book will use this method.
+There is some thing called as le header which will help in loading the name of the columns. We should know
+if the le is having the le header before loading.
+How to nd this out ?, Need to come back to this section.
+Comments Feature
+Comments in CSV le are indicated by # at the start of the line. If there are comments the le, based on
+the method used you will know if you can expect comments or not to be populated.
+Delimiter Feature
+Your le uses (,) as the delimiter. If there are some other delimiters like sapce or tab that needs to be
+specied while reading the le.
+Quotes Feature
+Some times there will Quotes for the values. The default quote character is the double quotation marks
+character.
+There are 4 features in the summary while reading the CSV le, need to really see which one is very important
+and others take the second stand.
+1) Delimiter Feature FD f this is highest used and important featureg
+2) File Header Feature FH f this is next highest used featureg
+3) Comments Feature FC fthis is less used feature g
+4) Quotes Feature FQ fthis is very less used feature g
+What is the percentage of the usage each of the above features fFC; FD; FD; FHg will dictate how to focus
+on them. There should be sample and usage of each of this feature which will help us to really understand
+what and how these features can help us.
+Loading CSV with Python Standard Library
+csv.reader() is the funtion used in this case
+Loading CSV with Numpy
+loadtxt() is the function which is used in this case
+urlopen() is the function which is used in case if data is present online.
+Loading CSV les with Pandas
+pandas.read csv() is the function which is used to read the CSV le.
+Pandas is the method which is generally used.
+How these can be implemented in the automated code of the machine learning. Should there be a selection
+of the option from the user, or detect the best way to read the same in code. For now we can go with one
+approach and than later we can see how best we can detect and use the best suitable approach.???
+Best way is to detect and take advantage of what ever it available, if we are rulling out some
+of the features based on their usage it may some times not fully leveraging the system
+what happens when there is no Data in given row
+    </div>
+{% endblock content %}

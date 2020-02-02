@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="main">
+    <h1> INDEPENDENT COMPOENENT ANALYSIS</h1>
+    <p>Independent component analysis separates a multivariate signal into additive subcomponents that are max-
+imally independent. It is implemented using the Fast ICA algorithm. Typically ICA is not used for dimen-
+sionality reduction, but for separating super imposed signals. Since ICA model does not include a noise term,
+for the model to be correct, whitening must be applied.
+1) BSS (Blind Source Separation Problem) : ICA is designed to solve BSS problem. PCA is totally
+bad at BSS problem.
+2) Directional : ICA is Directional. PCA results do not changes if we change the features and sam-
+ples.But ICA results dier for same inputs but interchanged for samples and features.
+3) Faces : PCA in faces example will nd the brigthness as its rst dimension and next it will nd the
+Average faces. but ICA will nd the nose, eyes, hair etc because PCA is more global orthogonality but ICA
+is not global orthogonal.
+4) Natural Scenes:PCA will be worth while for faces where its more on the signature identication, but in
+case of the Natural scenes there is nothing called as signature so PCA may fail badly. ICA in this case nds
+Edges. But there are Edge detectors out there which can still do this job and this will be same resutls.
+5) Documents: In case of Documents ICA gives you the topics as output.
+In unsupervised learing, understanding of the data is crucial as how human beign will understand it. In this
+case ICA will help very much. Feature transformation will help structure our data which can further be
+        classied to get the relevant results.</p>
+    </div>
+{% endblock %}

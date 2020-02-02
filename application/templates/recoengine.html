@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1> RECOMMENDATION ENGINE </h1>
+<br><br>
+<div class="container">
+	<div style="border: 1px solid gainsboro; border-radius:20px;">
+	    <form style="width: 80%; margin: auto; " method="POST" action="">
+	        {{ recoform.hidden_tag() }}
+	        <fieldset class="form-group">
+	            <legend class="border-bottom mb-4">EXTRACT FILES FROM FOLDERS</legend>
+	            <div class="form-group">
+	            	 {{ recoform.recopath.label(class="form-control-label")  }}
+	            	  {{ recoform.recopath(class="form-control form-control-lg" )  }}
+	            </div>
+	            <div class="form-group">
+	    			{{ recoform.recosubmit(class="btn btn-outline-info") }}
+				</div>
+				</fieldset>
+					<div>
+				<select name= {{recoform.recocorrection.names}} method="GET" action="/recoengine">
+				    {% for name in recoform.recocorrection.names %}
+				    	<option value= "{{name}}" SELECTED>{{name}}</option>"
+				    {% endfor %}
+				</select>
+			</div>
+	    </form>
+	</div>
+</div>
+
+{% endblock content %}

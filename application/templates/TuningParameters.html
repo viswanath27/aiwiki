@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+<h1> Tuning the Hyper Parameters of an estimator </h1>
+
+<p>Hyper Parameters are parameters that are not directly learnt within estimators. In scikit-learn they are
+passed as arguments to the constructor of the estimator calsses.These are model values you set before you
+train on your dataset. ML model is a formula where there are lot of paramters has to be learnt from data.
+But there are some of the paramters which cannot be learnt from data. These higher level properties as
+Hyper parameters (Ex: this could be number of trees in Random forest or number of layer in Neural network
+or the learning rate for the logistic regression). This is sometimes a process of trial and error, its not intutive.
+What if we can make this parameters learn the optimal values themselves.</p>
+<p>Suppose there is Support Vector Machine to decide the emotion of the tweets. 0 for Negative and 1 for Posi-
+tive, there is a dataset which those labels already in. This a classic binary classiffication problem. Supposing
+the we create a Support Vector machine which can learn from this data and classify a new tweet as Negative
+or Positive. This is called Sentiment Analysis. This is a very popular task in NLP. Once we plot the data
+in 2-D space there will boundary line which separates the positve and negative emotions. SVM can help us
+find this decision barrier. SVM is non-linear or it will basically use the Kernel trick. With Kernel the data
+gets plotted to a new higher dimensional space. This is called as feature space. This is doing a nonlinear
+transformation using a Kernel (or similarity function) and using a linear model in feature space. Kernel or
+similarity function is called Radial Basis Function. There are two hyper parameters that govern how our
+line will be drawn. These two parameters (C and Gamma) depend on each other in unknown ways. We
+cannot just optimize one at a time and just add the result. Also we cannot try every single possible value of
+parameters. We can have a variable to store our models accuracy for each set of the hyper parameters. We
+iterate the set of values for each of the hyper parameter with the other complete set. We train the model
+and score the model and compare the score with the best score. This will run and provides us the optimal
+set of Hyper Parameters. This is also called Grid search technique. But if there are more hyper parameters
+this process sclaes very poorly (this issue is also called as "Curse of Dimensionality").Instead of complete
+search we can go ahead with Random set of parameters and see if we can get best results.</p>
+Following are some of the methods used
+<ol>
+<li> Manual Search</li>
+<li> Grid Search</li>
+<li> Random Search</li>
+</ol>
+Instead of above there is other techinque called as Bayesian Optimization. Bayes theorem is way to deter-
+mine conditional probability. This will update the existing prediction given a new evidence. This more line
+Frequentist (Objective) (vs) Bayesian (Subjective) groups
+Bayesian
+This is more probablistic, it focuses on probability of the hypothesis given the data. That means Data is
+fixed and hypothesis is random.
+Frequentist
+These guys focuses on Probability of the data given the Hypothesis. Data is random and hypothesis is fixed.
+Hyper Parameter tuning, Bayesian takes advantage of learning better. We pick some prior belief of how our
+Hyper params will behave and than search the parameter space by enforcing and updating our prior belief
+based on our ongoing measurement. So the tradeoff between the exploration ensuring that we visited the
+relevant coordinates of our space and exploitation once we found the promising space and finding an optimal
+value in it is handled in a more intelligent way.
+1) Baysian Evaluation uses previously evaluated points to compute a postierior expectation of what the loss
+function looks like.
+2) Than it samples the loss at a new point that maximizes some utility of the expectation of function.
+
+</div>
+{% endblock content %}

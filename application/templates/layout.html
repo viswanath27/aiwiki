@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock title%}
+        - My Webpage
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='static/Chart.min.js'></script>
+       <script src="{{ url_for('static',filename='js/Chart.min.js') }}"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+     <script src="{{ url_for('static',filename='js/layout.js') }}"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tree_style.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+
+<div class="headerLayout">
+    <!-- <p align="RIGHT"><a href="{{url_for('logout')}}">Logout</a></p>
+    <p align="RIGHT"><a href="{{url_for('register')}}">Register</a></p>
+    <p align="RIGHT"><a href="{{url_for('login')}}">Login</a></p> -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+                {% if current_user.is_authenticated %}
+              <a class="nav-item nav-link" href="/">Home</a>
+              <a class="nav-item nav-link" href="{{url_for('Process')}}">Process</a>
+              <a class="nav-item nav-link" href="{{url_for('lr')}}">Image Recognition</a>
+              <a class="nav-item nav-link" href="{{url_for('chatbot')}}">Chat bot</a>
+              <a class="nav-item nav-link" href="{{url_for('nlp')}}">NLP</a>
+              <a class="nav-item nav-link" href="{{url_for('recoengine')}}">Recommendation Engine</a>
+              <a class="nav-item nav-link" href="{{url_for('gan')}}">GAN</a>
+                {% endif %}
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+                    <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+</div>
+<div  class="sidenav">
+
+    <ul id="myUL">
+        {% for value in first_level %}
+        <li><span class="box"><a href="{{url_for('start',heading=value.title)}}">{{value.title}}</a></span>
+            {% if value.title =='Introduction'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('introduction',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
+            {% elif value.title == 'Classifiers'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('classifiers',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
+            {% elif value.title == 'Regression'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('regression',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
+            {% elif value.title == 'DeepLearning'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('DeepLearning',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
+            {% elif value.title == 'ModelSelection'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('ModelSelection',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
+            {% elif value.title == 'DimensionalReduction'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('DimensionalReduction',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
+            {% elif value.title == 'Clustering'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('Clustering',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>            
+            {% elif value.title == 'Problems'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('Problems',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
+            {% elif value.title == 'NLP'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('NLP',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>                         
+            {% elif value.title == 'Book'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('Book',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>  
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+
+<div class="layoutMain" id="main">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category,message in messages %}
+                <div class="alert alert-{{category}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block content %}
+    {% endblock content%}
+</div>
+
+<div class="footerLayout"></div>
+
+<script>
+            var toggler = document.getElementsByClassName("box");
+            var i;
+
+            for (i = 0; i < toggler.length; i++) {
+              toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("check-box");
+              });
+            }
+</script>
+
+
+
+</body>
+</html>

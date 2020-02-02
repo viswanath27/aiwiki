@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>WORD EMBEDDINGS</h1>
+<p>Text Classiffication and Text Generation This section provides the complete details about how the ma-
+chine translation happens and how this is integrated with any sample application. What are the models
+involved in this and also what are the limitations of those models.</p>
+<p>In a machine translation, we have the words which needs to be trained by the machine. So that it can
+understand the meaning of the sentences and predict them accordingly.</p>
+<p>For this first we need to model the words accordingly there are three different types of the word modelings.</p>
+<ol>
+<li>One-hot encoding</li>
+<li>Encode each word with number</li>
+<li>Word Embeddings</li>
+</ol>
+<p>Each one of the above techniques have its own advantages and disadvantages.</p>
+<p><b>One hot encoding</b>: in this we simply have 1/0 assigned for each word in the double dimension matrix.</p>
+<p>main disadvantage of this technique would be we need a vast set of matrix.</p>
+<p><b>Encode each word with number</b>: this way we can have less number to represent information but here
+one other disadvantage will be that there is no relation between the words.</p>
+<p><b>Word Embeddings</b>: This is trainable way of the 
+oating point weights which are assigned words.</p>
+<p>The dimensionality of the Embeddings is the option which we can tweek to understand the performance of
+the Embeddings.</p>
+<p>When Embeddings layer is created, its weights are randomly initialized. During training they gradually
+adjust via backpropogation. Once trained the learned word embeddings will roughly encode the similarities
+between words.</p>
+<p>When given a batch of sequences as input, an embedding layer returns a 3D floating point tensor, of shape <b>(samples, sample length, embedding dimensiontality)</b>. To convert this sequence of the variable length
+to a fixed representation there are variety of standard approaches. You could use RNN, Attention or Pooling
+layer before passing it to Dense Layer. This mechanism uses the pooling because it is simplest and there are
+examples explaing with RNN. Need to see the differences between both of them.</p>
+
+<p>Padded Batch method is used to standardize the length of the reviews.</p>
+<p><b>Code using the pooling for word embeddings</b></p>
+
+<pre>
+<code>
+embedding dim=16
+ model = keras.Sequential ([
+ layers.Embedding(encoder.vocabsize, embeddingdim),
+ layers.GlobalAveragePooling1D(),
+ layers.Dense(16, activation='relu'),
+ layers.Dense(1, activation='sigmoid')
+ ])
+model.summary()
+</code>
+</pre>
+<p>Lets talk about the algorithm in detail.</p>
+<ul>
+	<li><b>INITIALIZE</b></li>
+	<ul>
+		<li>Instantiate the layers.Embedding to a variable</li>
+	</ul>
+	<li><b>INPUT DATA</b></li>
+	<ol>
+		<li>Will have the import of the movie review data base</li>
+		<li>Once data is imported split it to test and train</li>
+		<li>Pad the data to constant length and shuffle it</li>
+		<li>Just a check of what happens if the above step is not performed?</li>
+	</ol>
+	<li><b>MODEL</b></li>
+		<ul>
+		<li><b><i>Embedding</i></b></li>
+			<ol>
+				<li>This layer takes the integer -encoded vocabulary and looks up for the embedded vector for
+	each word index</li>
+				<li>These vectors are learnt as model trains.</li>
+				<li>input dim: int 0. Size of the vocabulary, i.e. maximum integer index + 1.</li>
+				<li>output dim: int 0. Dimension of the dense embedding.</li>
+				<li>What happens when the output dim does not match with the Dense layer</li>
+			</ol>
+<li><b><i>Global Average Pooling 1D</i></b></li>
+<ol>
+<li>This layer returns a xed length output vector for each example for averaing over sequence
+dimension.</li>
+<li>This is simply allowing the model to handle input of variable length, in the simplest way
+possible.</li>
+<li>What are the other options here</li>
+</ol>
+
+<li><b><i>Dense(16,activation='relu')</i></b></li>
+<ul>
+<li>16 layer Dense net</li>
+<li>why only 16 ?</li>
+	<ul>
+	<li> Checked with 32 and nothing changes, no improvement in accuracy.</li>
+	</ul>
+<li> what happens if we add another Dense layer in middle, if so how much the number should be</li>
+	<ul>
+	<li> Nothing changes and inreturn the accuracy decreases if one more layer is added.</li>
+	</ul>
+<li> Adding another really is not making any sense and accuracy radically drops.</li>
+<li> what happens if we change the activation function here</li>
+	<ul>
+	<li> When this activation function is changed to Sigmoid, accuracy increased to 90.0 %</li>
+	</ul>
+</ul>
+<li><b><i>Dense (1,activation='sigmoid')</i></b></li>
+<ul>
+<li> This is the probability of the review being positive or not</li>
+<li> This one should be 'sigmoid' all the time. If this is 'relu' accuracy will radically drop.87.5 %
+(when sigmoid) and 50.0 % (when relu)</li>
+<li> Reason for the same has to be written here</li>
+</ul>
+</ul>
+<li><b>COMPILE & TRAIN MODEL</b></li>
+<ul>
+<li>Compile and train the model in this stage</li>
+<li>What are the possible optimizer and loss functions which can be used</li>
+</ul>
+{% endblock content %}

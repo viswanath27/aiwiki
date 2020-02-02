@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>SENTIMENT ANALYSIS</h1>
+
+<pre>
+<code>
+model = tf.keras.Sequential([
+tf.keras.layers.Embedding ( encoder . vo c ab s i z e , 64) ,
+tf.keras.layers.Bidirectional(tf.keras.layers.LSTM( 64) ) ,
+tf.keras.layers.Dense (64, activation=' relu' ) ,
+tf.keras.layers.Dense ( 1, activation=' sigmoid' )
+])
+
+</code>
+</pre>
+
+<p>Listing 2: text classiffication using RNN</p>
+
+<p>compiles the keras model to configure the training process</p>
+
+<pre>
+<code>
+
+model.compile(loss='binarycross entropy',
+optimizer=tf.keras.optimizers.Adam(1e4) ,
+metrics=['accuracy'])
+</code>
+</pre>
+
+<p>Listing 3: compile the model</p>
+<p>Train the model</p>
+<pre>
+<code>
+history=model.fit( t r a i n d a t a s e t , epochs=10,
+validationdata = testdataset ,
+validationsteps = 30)
+</code>
+</pre>
+
+
+<p>Listing 4: Train the model</p>
+<p>Add two more layers in LSTM</p>
+
+<pre>
+<code>
+model = tf.keras.Sequential ([
+tf.keras.layers.Embedding ( encoder . vocabsize , 64) ,
+tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64 , return sequences=True ) ) ,
+tf.keras.layers.Bidirectional(tf.keras.layers.LSTM( 32) ) ,
+tf.keras.layers.Dense (64, activation = 'relu') ,
+tf.keras.layers.Dropout (0.5) ,
+tf.keras.layers.Dense (1 ,activation = 'sigmoid')
+])
+</code>
+</pre>
+
+<pre>
+<code>
+
+model . compile ( loss = 'binary cross entropy' ,
+optimizer = tf.keras.optimizers.Adam(1e4) ,
+metrics = ['accuracy'])
+history = model.fit (traindataset , epochs=10,
+validationdata = testdataset ,
+validationsteps = 30)
+</code>
+</pre>
+
+<p>Listing 5: LSTM added with two more layers</p>
+
+{% endblock content %}
