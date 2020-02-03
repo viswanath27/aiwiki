@@ -33,14 +33,14 @@ repsectively. Position [1,0] will indicate as False Negatives. False Negatives m
 heart disease but the algorithm said they didn't. lastly position [0,1] will show False Positives. This means
 the patients were not having heart disease but the algorithm says they have heart disease.
 Following are the four options which are generally present in Confusion Matrix.</p>
-    1) Ture Positives [TP]
-Has disease and predicted as diseased.
-2) Ture Negatives [TN]
-Does not have diseases and are also predicted as not having disease.
-3) False Positives [FP]
-Does not have disease but predicted as having disease.
-4) False Negatives [FN]
-Has Disease but not predicted as having disease.
+<ol>
+    <li>Ture Positives [TP] : Has disease and predicted as diseased.</li>
+    <li>Ture Negatives [TN] : Does not have diseases and are also predicted as not having disease.</li>
+    <li>False Positives [FP] : Does not have disease but predicted as having disease.</li>>
+    <li>False Negatives [FN] : Has Disease but not predicted as having disease.</li>
+</ol>
+    
+
 In general matrix will look like below.
 
 TP FP
@@ -48,18 +48,18 @@ FN TN
 
 9
     <h2> BIAS AND VARIANCE</h2>
-    <p>The inability of Linear Regression to t the data with striaght line is called Bias. The best t like squiggly
-line may have very little bias. We can compare how the striaght line and squiggly line can t the data set by
+    <p>The inability of Linear Regression to fit the data with striaght line is called Bias. The best fit like squiggly
+line may have very little bias. We can compare how the striaght line and squiggly line can fit the data set by
 calculating their sums of squares. Measure the distances from the line and the data, square them and add
 them up. For a squiggly line the distances between the line and data is all zeros. But for the striaght line the
 square add up to some value. So the squiggly line wins the contest. If we calculate the sum of the squares
-for the testing set, in this case striaght line best ts the testing set than the squiggly line. Striaght line
-wins.The dierence in ts between the datasets is called Variance. Striaght lines will get good predictions
-but not great predictions. But they will be consistent in thier predictions. Squiggly line best ts the training
-set but not the testing data set this is called as "Over t". In machine learning the ideal algorithm has
+for the testing set, in this case striaght line best fits the testing set than the squiggly line. Striaght line
+wins.The difference in fits between the datasets is called Variance. Striaght lines will get good predictions
+but not great predictions. But they will be consistent in thier predictions. Squiggly line best fits the training
+set but not the testing data set this is called as "Over fit". In machine learning the ideal algorithm has
 low bias and can accurately model the true relationship and it has low variability by producing consistent
-perdictions across dierent datasets.This is done by nding the sweet spot between a simple model and a
-complext model. Three commonly used methods to nd the sweet spot between simple and complicated
+perdictions across different datasets.This is done by finding the sweet spot between a simple model and a
+complext model. Three commonly used methods to find the sweet spot between simple and complicated
 models are regularization,boosting, bagging.</p>
 
     <h2>ROC & AUC</h2>
