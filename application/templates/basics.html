@@ -42,11 +42,8 @@ Following are the four options which are generally present in Confusion Matrix.<
     
 
 In general matrix will look like below.
-
-TP FP
-FN TN
-
-9
+[TP FP FN TN]
+
     <h2> BIAS AND VARIANCE</h2>
     <p>The inability of Linear Regression to fit the data with striaght line is called Bias. The best fit like squiggly
 line may have very little bias. We can compare how the striaght line and squiggly line can fit the data set by
@@ -65,11 +62,11 @@ models are regularization,boosting, bagging.</p>
     <h2>ROC & AUC</h2>
     <p>For a logistic regression we have to come up with a threshold of probability so that we can classify the samples
 as obese or not obese. This probability or threshold line will depend on the use case of the problem. Can
-we move the threshold line to dierent values and see how is the confusion matrix leading to. If we move
+we move the threshold line to different values and see how is the confusion matrix leading to. If we move
 the threshold such that each set of the data point on the threshold line than we will have so many confusion
 matrix, this is confusing.
 Instead of ROC graphs provides the simple way to summarize all the information. In ROC graph y-axis will
-show True Positive or (Sensitivity) and x axis will be Flase Positive Rate (1 - Specicity) .</p>
+show True Positive or (Sensitivity) and x axis will be Flase Positive Rate (1 - Specificity) .</p>
 
     <h2>ROC & AUC CALCULATION</h2>
     <p>
