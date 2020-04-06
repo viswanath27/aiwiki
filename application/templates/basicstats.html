@@ -1,0 +1,197 @@
+
+{% extends "layout.html" %}
+<head>
+ {% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 90%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.tab-border {
+  border: 1px solid #ddd !important;
+  border-radius: 4px 4px 0 0;
+}
+
+.content-border {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 650px;
+  overflow: scroll;
+}
+
+</style>
+    {% endblock head %}
+</head>
+
+{% block content %}
+
+<div>
+
+<div class="container">
+  <h2><b>CENTRAL TENDENCY</b></h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+  	<li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#BASICS">BASICS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border " data-toggle="tab" href="#USECASES">USECASES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ALGORITHM">ALGORITHM</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#EXAMPLE">EXAMPLE</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ESTIMATORS">ESTIMATORS</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="BASICS" class="container tab-pane content-border active"><br>
+      <h4><b>MEAN</b></h4>
+      	<p>Mean is the sum of all the samples and divided by its count. This really important metric to get a picture of the samples. Mean for population is represented by &mu; but mean for samples is represented by x&#x0304;  </p>
+      <h4><b>MEDIAN</b></h4>
+      	<p>Median is the middle number of the dataset whene it is ordered in ascending order.  </p>
+      <h4><b>MODE</b></h4>
+      	<p>Mode is the most repeated number in the complete dataset. This can give a representation of a value for the complete dataset  </p>
+      	<h4><b>DESCRIBING THE DATASET</b></h4>
+      <p>Which one should be prefered when describing the data set. Using only one is not good solution, you may use combination of them to describe the dataset as you need.</p>
+      <h4><b>COVARIANCE </b></h4>
+<p>Sample COVariance </p>
+<p>$$ \boxed{S_{xy} = \frac{\sum_{i=1}^{n} (x_{i}-\bar{x})\times (y_{i}-\bar{y})}{n-1}  }$$</p>
+<p>Population COVariance </p>
+<p>$$ \boxed{\sigma_{xy} = \frac{\sum_{i=1}^{N} (x_{i}-\mu_{x})\times (y_{i}-\mu_{y})}{N}  }$$</p>
+<p> this is basically calculating the relation between two features, as its sample data we will use sample format of the data</p>
+<p> Covariance is giving the sense of the direction in which relation is moving</p>
+<ol>
+	<li> > 0, the two variables move together </li>
+	<li> < 0, the two variables move in opposite direction</li>
+	<li> = 0, the two variables are independent </li>
+</ol>
+<h4><b>CORRELATION COVARIANCE </b></h4>
+<p> Instead of having big number can we bring it to smaller number to make it more intutive. </p>
+$$ \boxed{\frac{Cov(x,y)}{stdev(x) \times stdev(y)}}$$
+$$ \boxed{-1 \leq correlation\_coifficent \leq 1}$$
+<ol>
+	<li>1 means a perfect correlation between two variables</li>
+	<li>0 means no correlation </li>
+	<li>-1 means negative correlation, meaning as one increases other variable decreases</li>
+</ol>
+
+    </div>
+    <div id="USECASES" class="container tab-pane content-border fade"><br>
+      <h3>USECASES</h3>
+      	<p>Before getting into Logistic Regression understanding following are some of the use cases where this model is used.</p>
+		<ul>
+			<li>1. Classifying banking customers on whether or not they will default on a loan.</li>
+			<li>2. Predicting whether or not a skin lesion is benign or malignant based on some criteria.</li>
+			<li>3. Categorizing the mail as spam or not</li>
+		</ul>
+		<p>Basically this form or analysis will lead to a results of YES or NO.</p>
+    </div>
+    <div id="ALGORITHM" class="container tab-pane content-border fade"><br>
+	<h4><b>SAMPLE MEAN</b></h4>
+	formula for Sample Mean : 
+	<p>
+$$ \frac{\sum_{i=1}^{n} x_{i}}{n}  = \frac{(x_{1}+x_{2}+x_{3}+....+x_{n})}{n}  $$</p>
+
+<p><i>n</i> = is the size of sample size</p>
+	<h4><b>POPULATION MEAN</b></h4>
+	Formula for Population Mean : 
+<p>
+	$$ \frac{\sum_{i=1}^{N} x_{i}}{N}  = \frac{(x_{1}+x_{2}+x_{3}+....+x_{N})}{N} $$ 
+</p>
+<p><i>N</i> = is the population  </p>
+
+<p>Both are some thing same. But used for calculation when we have sample vs popultation. Sample is random selection of data set, where as population is complete dataset. </p>
+
+<h4><b>VARIANCE</b></h4>
+Variance shows the dispersion of the data around  the mean value.
+<p>Sample Variance </p>
+<p>$$ \boxed{S^{2} = \frac{\sum_{i=1}^{n} (x_{i}-\bar{x})^{2}}{n}  }$$</p>
+<p>Population Variance </p>
+<p>$$ \boxed{\sigma^{2} = \frac{\sum_{i=1}^{N} (x_{i}-\mu)^{2}}{N}  }$$</p>
+
+<h4><b>STANDARD DEVIATION</b></h4>
+<p>Standard deviation is simple square root of the Variance</p><br>
+
+<p>Sample Standard deviation </p>
+$$\boxed{S = \sqrt{S}}$$
+<p>Population Standard Deviation </p>
+$$\boxed{\sigma = \sqrt{\sigma}}$$
+<p>But the square is reducing the impact of the square root, but may not completely nullify it.</p>
+
+<h4><b>COEFFICIENT OF VARIATION </b></h4>
+<p>This is just a standard deviation divided by mean. This is also called as <b>relative standard Deviation</b>. This is simply telling the standard deviation wrt to mean.</P>
+
+<p>Sample coifficent of vairance </p>
+$$\boxed{\hat{c}_{v} = \frac{S}{\bar{x}}}$$
+
+<p>Population coifficent of vairance </p>
+$$\boxed{c_{v} = \frac{\sigma}{\mu}}$$
+<p> When standard deviation is showing the variability for the dataset, why we need Coifficent of Variance. SD comparison for two different datasets does not have any meaning but comparing the Coifficent of Variance will make sense this is more of normalization of data t</p>
+
+<p> There are three types of the tools[variance, standard deviation, coiffient of Variance] which can describe the data set, we need to use them accordingly as needed </p>
+<p> All these measure are univariable measures for one dimensional data set, next we need to understand how we can understand or measure multi variation data. </p>
+<p> obvisouly when we have feature and target columns, they will have some relation and correlated. The metric which is used to measure this is covariance. </p>
+
+    </div>
+    <div id="EXAMPLE" class="container tab-pane content-border fade"><br>
+      <h3>EXAMPLE</h3>
+      <pre><code class="html">
+		x = 5;
+		y = 6;
+		z = x + y;
+		</code></pre>
+
+		<h3>Behaviour</h3>
+		This function generally shows its behvaiour as shown below:<br>
+
+		<img src="{{url_for('static', filename='Sigmod.png')}}" alt="" align="middle" width="700" height="400"><br><br>
+    </div>
+    <div id="ESTIMATORS" class="container tab-pane content-border fade"><br>
+      <h3>ESTIMATORS</h3>
+      		<h3>Maximum-likelihood estimation</h3>
+<p>In statistics Maximum likelihood estimation (MLE) is a method of estimating the parameters of a statistical
+model. The method obtains the parameter estimates by finding the parameter values that maximize the
+liklihood function.</p>
+
+<h3>Quasi-newton method</h3>
+<p>Quasi-Newton methods are the methods used to find either zeros or local maxima and minima of functions,
+as an alternative to Newton's method. They can be used if the 'Jacobian' or 'Hessian' is unavailable or too
+expensive to compute at every iteration.</p>
+<h3>Gradient descent algorithm</h3>
+<p>Its a first order iterative optimization algorithm for finding the minimum of a function. To find the local
+minimum of function using the gradient descent one takes steps proportional to the negative of the gradient
+of the function at the current point.</p>
+<h3>Physical significance</h3>
+<p>F(x) is the multi variable function is defined and differentiable in a neighbourhood of a point a, then F(x)
+decreases fast if one goes from a in the direction of the negative gradient of F at a,rF(a). it follows that, if</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+{% endblock content %}
