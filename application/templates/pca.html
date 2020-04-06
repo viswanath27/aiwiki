@@ -1,10 +1,65 @@
 {% extends "layout.html" %}
+<head>
+ {% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 90%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.tab-border {
+  border: 1px solid #ddd !important;
+  border-radius: 4px 4px 0 0;
+}
+
+.content-border {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 650px;
+  overflow: scroll;
+}
+
+</style>
+    {% endblock head %}
+</head>
 
 {% block content %}
+<div>
+<h1><b>PRINCIPLE COMPONENT ANALYSIS</b></h1>
 
-<div class="main">
-    <h1>PRINCIPLE COMPONENT ANALYSIS</h1>
-    <p>Validating the model with the same data which is used for training is atmost blunder as this would always
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#BASICS">BASICS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border " data-toggle="tab" href="#USECASES">USECASES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ALGORITHM">ALGORITHM</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#EXAMPLE">EXAMPLE</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ESTIMATORS">ESTIMATORS</a>
+    </li>
+  </ul>
+
+
+  <div class="tab-content">
+    <div id="BASICS" class="container tab-pane content-border active"><br>
+      <h3>BASICS</h3>
+        <p>Validating the model with the same data which is used for training is atmost blunder as this would always
 lead to the correct result and this kind of models will fail to predict when new data is presented. This
 situation is called overtting.
 This Method transforms variables to a new variables from the linear combination of original variables. These
@@ -21,30 +76,67 @@ all the PCA components. Standardizing the data means bringing the data to a comm
 grams for everything but not kilograms and grams).This means that data should have mean of 0 and variance
 of 1.Variance here is computed by standard deviation squared.Once data is standardized we perform Eigne
         decomposition.</p>
+    </div>
 
-    <h2>APPROACH</h2>
-    <p>
-        [STEP : 1] Standardize the data.
-[STEP : 2] Use the standardized data to generate a covariance matrix (or perform Singular Vector
-Decomposition).
-[STEP : 3] Obtain eigenvectors (principal components) and eigenvalues from the covariance matrix. Each
-eigenvector will have a corresponding eigenvalue.
-[STEP : 4] Sort the eigenvalues in descending order.
-[STEP : 5] Select the k eigenvectors with the largest eigenvalues, where k is the number of dimensions
-used in the new feature space (kd).
-[STEP : 6] Construct a new matrix with the selected k eigenvectors.
+<div id="USECASES" class="container tab-pane content-border active"><br>
+      <h3>USECASES</h3>
+        <p>This section explains the Linear Discriminant Analysis of the machine learning and its uses and its examples Little bit about the problem statement of where Linear Discriminant Analysis is useful.</p>
+        <p>Suppose there is this new cancer drug</p>
+        <ol>
+            <li> It works great for some people.</li>
+            <li> But for some people it makes it worse.</li>
+        </ol>
+    </div>
+    
+  
+<div id="ALGORITHM" class="container tab-pane content-border active"><br>
+      <h3>ALGORITHM</h3>
+        <p>
+            <ol>
+                <li>[STEP : 1] Standardize the data.</li>
+                <li>[STEP : 2] Use the standardized data to generate a covariance matrix (or perform Singular Vector
+Decomposition).</li>
+                <li>[STEP : 3] Obtain eigenvectors (principal components) and eigenvalues from the covariance matrix. Each
+eigenvector will have a corresponding eigenvalue.</li>
+                <li>[STEP : 4] Sort the eigenvalues in descending order.</li>
+                <li>[STEP : 5] Select the k eigenvectors with the largest eigenvalues, where k is the number of dimensions
+used in the new feature space (kd).</li>
+                <li>[STEP : 6] Construct a new matrix with the selected k eigenvectors.</li>
+        </ol>
     </p>
+    </div>  
+
+  
+<div id="EXAMPLE" class="container tab-pane content-border active"><br>
+      <h3>EXAMPLE</h3>
     <p>
         PCA Tips.
-1) Scaling your data
-2) Centering your data
-3) How many principle components you should expect to get
-TIP 1. Make sure variables are on the same scale. if not scale them. Standard practice is divide each
-variable with its standard deviation.
-TIP 2. Make sure your data is centered. Not every algorithm does the same. If PCA is done using SVD
-without centering your PCs will not be what you expected.
-TIP 3. Max PCs can be max as the number of categories which we have in our data set, but that the rst
-few will have the maximum information in it.
+        <ol>
+            <li>Scaling your data</li>
+            <li>Centering your data</li>
+            <li>How many principle components you should expect to get</li>
+        </ol>
+        <ol>
+            <li>TIP 1. Make sure variables are on the same scale. if not scale them. Standard practice is divide each
+variable with its standard deviation.</li>
+            <li>TIP 2. Make sure your data is centered. Not every algorithm does the same. If PCA is done using SVD
+without centering your PCs will not be what you expected.</li>
+            <li>TIP 3. Max PCs can be max as the number of categories which we have in our data set, but that the rst
+few will have the maximum information in it.</li>
+        </ol>
     </p>
+    </div>  
+
+    <div id="ESTIMATORS" class="container tab-pane content-border active"><br>
+      <h3>ESTIMATORS</h3>
+        <p>This section explains the Linear Discriminant Analysis of the machine learning and its uses and its examples Little bit about the problem statement of where Linear Discriminant Analysis is useful.</p>
+        <p>Suppose there is this new cancer drug</p>
+        <ol>
+            <li> It works great for some people.</li>
+            <li> But for some people it makes it worse.</li>
+        </ol>
+    </div>  
+</div>
+
 </div>
 {% endblock %}

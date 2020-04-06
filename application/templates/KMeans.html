@@ -1,7 +1,205 @@
+
 {% extends "layout.html" %}
+<head>
+ {% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 90%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.tab-border {
+  border: 1px solid #ddd !important;
+  border-radius: 4px 4px 0 0;
+}
+
+.content-border {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 650px;
+  overflow: scroll;
+}
+
+</style>
+    {% endblock head %}
+</head>
 
 {% block content %}
+
 <div>
-    <h1>K - MEANS</h1>
+
+<div class="container">
+  <h2><b>K - MEANS CLUSTERING</b></h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+  	<li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#BASICS">BASICS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border " data-toggle="tab" href="#USECASES">USECASES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ALGORITHM">ALGORITHM</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#EXAMPLE">EXAMPLE</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ESTIMATORS">ESTIMATORS</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="BASICS" class="container tab-pane content-border active"><br>
+      <h3>BASICS</h3>
+      	<p>In K-Mean algorithm we understand how to pick the best value for K. Once we plot a data based on distribu-
+tion we get to its allignment we can see that data is alligned in clusters. But in how can we make computer
+to identify these clusters. Following are the steps which are present in K-means cluster.</p>
+<ul>
+	<li><b>[STEP 1]:</b> Select the number of the clusters you want to end up after clustering. This is the K in K-Means
+cluster (like example if you want 3 clusters, k will be 3). There also a better way to select K</li><br>
+	<li><b>[STEP 2]:</b> Randomly select 3 distant Data points.These will be the initial clusters.</li><br>
+	<li><b>[STEP 3]:</b> Measure the distance between the rst point and the 3 initial clusters.</li><br>
+	<li><b>[STEP 4]:</b> Assign the rst point to the nearest cluster.</li><br>
+	<li><b>[STEP 5]:</b> Repeat the same to the second point and assign the cluster which is near to it.</li><br>
+	<li><b>[STEP 6]:</b> After this step we should calculate the mean of each cluster. That would be the average of all the
+groups of the points in cluster.</li><br>
+	<li><b>[STEP 7]:</b> Again measure and cluster using the mean values. This way it may not lead to good clustering.</li><br>
+	<li><b>[STEP 8]:</b> But to assess the quality of clustering by adding up the variation within each cluster.</li><br>
+	<li><b>[STEP 9]:</b> So it beign the machine it cannot judge the best initial points, we have to do above said complete
+procedure by choosing dierent initial points and keep the mean and variance. This will repeat for all the
+points in group.</li><br>
+	<li><b>[STEP 10]:</b> Once after all the clustering is compared we can understand the variance and see which is the
+best clustering out of all the samples.</li><br>
+	<li><b>[STEP 11]:</b> How do we know best K value ?</li>
+<p>Answer : one possible way is to start with K = 1 and try dierent values and check the total variation
+against the next number. As you increase you may see improvement. But after some time you may end up
+not seeing benet in higher values. When the K reaches max number of points we get the variation 0. If we
+plot all these iterations of variance and K We can easily notice after what value of K it will not impact any
+more.</p><br>
+	<li><b>[STEP 12]:</b> How do we know best points to choose to reduce the number of iterations in algorithm.</li><br>
+	<li><b>[STEP 13]:</b> What happens if we have the 2-D points instead of point on single line.</li><br>
+<p>Answer: We have to consider the euclidean distance this is same pythogarus distance of the selected point
+to new point.
+<img src="http://latex.codecogs.com/gif.latex?$\sqrt{x^{2} + y^{2}}$" border="0"/><br></p>
+<li><b>[STEP 14]:</b> What is my data is a heat map?</li>
+<p>Answer: If we have 2 samples we can plot the same on X & Y map. If we have more than 2 dimensional
+data.<br>
+ex1: 3 D data, euclidean distance is <img src="http://latex.codecogs.com/gif.latex?$\sqrt{x^{2} + y^{2} + z^{2} }$" border="0"/><br>
+ex2: 4 D data, euclidean distance is <img src="http://latex.codecogs.com/gif.latex?$\sqrt{x^{2} + y^{2} + z^{2} + a^{2}}$" border="0"/><br>
+Some more important information</p><br>
+
+</ul>
     </div>
+    <div id="USECASES" class="container tab-pane content-border fade"><br>
+      <h3>USECASES</h3>
+      	<p>Before getting into Logistic Regression understanding following are some of the use cases where this model is used.</p>
+		<ul>
+			<li>1. Classifying banking customers on whether or not they will default on a loan.</li>
+			<li>2. Predicting whether or not a skin lesion is benign or malignant based on some criteria.</li>
+			<li>3. Categorizing the mail as spam or not</li>
+		</ul>
+		<p>Basically this form or analysis will lead to a results of YES or NO.</p>
+    </div>
+    <div id="ALGORITHM" class="container tab-pane content-border fade"><br>
+      <h3>ALGORITHM</h3>
+      <p>This section explains the Logistic Regression model of the machine learning and its uses and its examples.
+This the best method to choose if we are going for the binary classication. Logistic function is nothing but
+the sigmod function. It is shown by following equation</p>
+
+
+<p>
+  $$S(x) = {1 \over {1 + e^{-x}}}.$$
+</p>
+
+<p>Logistic Regression function is as shown below.</p>
+
+<p>
+  $$y = {e^{B0+B1x} \over {1 + e^{B0+B1x}}}.$$
+</p>
+
+<p>Above is the Logistic Regression function</p>
+
+<ul>
+	<li>1) (x) : is input</li>
+	<li>2) (B) : is the weights or coefficient values</li>
+	<li>3) (y) : Predicted output values</li>
+	<li>4) (B0) : is the bias or intercept</li>
+	<li>5) (B1) : is the coefficient for the single input value (x)</li>
+</ul>
+The main difference from linear regression is that output value is being modeled as the binary values (0 or
+1) rather numeric value.
+<p>Logistic regression is a liner model, but the predictions are using Logistic function, resulting in predictions
+being non-linear combination of inputs.This generally happens in Linear regression.</p>
+
+<p>
+  $$P(x) = {e^{B0+B1x} \over {1 + e^{B0+B1x}}}.$$
+</p>
+
+By applying natural logarithm (ln) on both sides above equation will lead to below format.
+
+<p>
+  $$ln({P(x) \over 1 - P(x)}) = B0 + B1x.$$
+</p>
+
+
+<p>Coefficients of the logistic regression algorithm must be estimated from your training data. Maximum-
+likelihood estimation is the algorithm which is used to caclulate these coefficients. This is implemented using
+Quasi-newton method which is numeric optimization algorithm. This can also be implemented using simpler Gradient descent algorithm</p>
+    </div>
+    <div id="EXAMPLE" class="container tab-pane content-border fade"><br>
+      <h3>EXAMPLE</h3>
+      <pre><code class="html">
+		x = 5;
+		y = 6;
+		z = x + y;
+		</code></pre>
+
+		<h3>Behaviour</h3>
+		This function generally shows its behvaiour as shown below:<br>
+
+		<img src="{{url_for('static', filename='Sigmod.png')}}" alt="" align="middle" width="700" height="400"><br><br>
+    </div>
+    <div id="ESTIMATORS" class="container tab-pane content-border fade"><br>
+      <h3>ESTIMATORS</h3>
+      		<h3>Maximum-likelihood estimation</h3>
+<p>In statistics Maximum likelihood estimation (MLE) is a method of estimating the parameters of a statistical
+model. The method obtains the parameter estimates by finding the parameter values that maximize the
+liklihood function.</p>
+
+<h3>Quasi-newton method</h3>
+<p>Quasi-Newton methods are the methods used to find either zeros or local maxima and minima of functions,
+as an alternative to Newton's method. They can be used if the 'Jacobian' or 'Hessian' is unavailable or too
+expensive to compute at every iteration.</p>
+<h3>Gradient descent algorithm</h3>
+<p>Its a first order iterative optimization algorithm for finding the minimum of a function. To find the local
+minimum of function using the gradient descent one takes steps proportional to the negative of the gradient
+of the function at the current point.</p>
+<h3>Physical significance</h3>
+<p>F(x) is the multi variable function is defined and differentiable in a neighbourhood of a point a, then F(x)
+decreases fast if one goes from a in the direction of the negative gradient of F at a,rF(a). it follows that, if</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
 {% endblock content %}

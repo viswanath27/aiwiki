@@ -1,7 +1,168 @@
+
 {% extends "layout.html" %}
+<head>
+ {% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 90%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.tab-border {
+  border: 1px solid #ddd !important;
+  border-radius: 4px 4px 0 0;
+}
+
+.content-border {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 650px;
+  overflow: scroll;
+}
+
+</style>
+    {% endblock head %}
+</head>
 
 {% block content %}
+
 <div>
-    <h1>Mean Shift</h1>
+
+<div class="container">
+  <h2><b>MEAN SHIFT</b></h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+  	<li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#BASICS">BASICS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border " data-toggle="tab" href="#USECASES">USECASES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ALGORITHM">ALGORITHM</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#EXAMPLE">EXAMPLE</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ESTIMATORS">ESTIMATORS</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="BASICS" class="container tab-pane content-border active"><br>
+      <h3>BASICS</h3>
+      	<p>MeanShift clustering aims to discover blobs in a smooth density of samples. It is a centroid based algorithm, which works by updating candidates for centroids to be the mean of the points within a given region. These candidates are then filtered in a post-processing stage to eliminate near-duplicates to form the final set of centroids.</p>
     </div>
+    <div id="USECASES" class="container tab-pane content-border fade"><br>
+      <h3>USECASES</h3>
+      	<p>Before getting into Logistic Regression understanding following are some of the use cases where this model is used.</p>
+		<ul>
+			<li>1. Classifying banking customers on whether or not they will default on a loan.</li>
+			<li>2. Predicting whether or not a skin lesion is benign or malignant based on some criteria.</li>
+			<li>3. Categorizing the mail as spam or not</li>
+		</ul>
+		<p>Basically this form or analysis will lead to a results of YES or NO.</p>
+    </div>
+    <div id="ALGORITHM" class="container tab-pane content-border fade"><br>
+      <h3>ALGORITHM</h3>
+      <p>The algorithm automatically sets the number of clusters, instead of relying on a parameter bandwidth, which dictates the size of the region to search through. This parameter can be set manually, but can be estimated using the provided estimate_bandwidth function, which is called if the bandwidth is not set.
+      <p>The algorithm is not highly scalable, as it requires multiple nearest neighbor searches during the execution of the algorithm. The algorithm is guaranteed to converge, however the algorithm will stop iterating when the change in centroids is small.</p>
+      <p>Labelling a new sample is performed by finding the nearest centroid for a given sample.</p>
+
+
+<p>
+  $$S(x) = {1 \over {1 + e^{-x}}}.$$
+</p>
+
+<p>Logistic Regression function is as shown below.</p>
+
+<p>
+  $$y = {e^{B0+B1x} \over {1 + e^{B0+B1x}}}.$$
+</p>
+
+<p>Above is the Logistic Regression function</p>
+
+<ul>
+	<li>1) (x) : is input</li>
+	<li>2) (B) : is the weights or coefficient values</li>
+	<li>3) (y) : Predicted output values</li>
+	<li>4) (B0) : is the bias or intercept</li>
+	<li>5) (B1) : is the coefficient for the single input value (x)</li>
+</ul>
+The main difference from linear regression is that output value is being modeled as the binary values (0 or
+1) rather numeric value.
+<p>Logistic regression is a liner model, but the predictions are using Logistic function, resulting in predictions
+being non-linear combination of inputs.This generally happens in Linear regression.</p>
+
+<p>
+  $$P(x) = {e^{B0+B1x} \over {1 + e^{B0+B1x}}}.$$
+</p>
+
+By applying natural logarithm (ln) on both sides above equation will lead to below format.
+
+<p>
+  $$ln({P(x) \over 1 - P(x)}) = B0 + B1x.$$
+</p>
+
+
+<p>Coefficients of the logistic regression algorithm must be estimated from your training data. Maximum-
+likelihood estimation is the algorithm which is used to caclulate these coefficients. This is implemented using
+Quasi-newton method which is numeric optimization algorithm. This can also be implemented using simpler Gradient descent algorithm</p>
+    </div>
+    <div id="EXAMPLE" class="container tab-pane content-border fade"><br>
+      <h3>EXAMPLE</h3>
+      <pre><code class="html">
+		x = 5;
+		y = 6;
+		z = x + y;
+		</code></pre>
+
+		<h3>Behaviour</h3>
+		This function generally shows its behvaiour as shown below:<br>
+
+		<img src="{{url_for('static', filename='Sigmod.png')}}" alt="" align="middle" width="700" height="400"><br><br>
+    </div>
+    <div id="ESTIMATORS" class="container tab-pane content-border fade"><br>
+      <h3>ESTIMATORS</h3>
+      		<h3>Maximum-likelihood estimation</h3>
+<p>In statistics Maximum likelihood estimation (MLE) is a method of estimating the parameters of a statistical
+model. The method obtains the parameter estimates by finding the parameter values that maximize the
+liklihood function.</p>
+
+<h3>Quasi-newton method</h3>
+<p>Quasi-Newton methods are the methods used to find either zeros or local maxima and minima of functions,
+as an alternative to Newton's method. They can be used if the 'Jacobian' or 'Hessian' is unavailable or too
+expensive to compute at every iteration.</p>
+<h3>Gradient descent algorithm</h3>
+<p>Its a first order iterative optimization algorithm for finding the minimum of a function. To find the local
+minimum of function using the gradient descent one takes steps proportional to the negative of the gradient
+of the function at the current point.</p>
+<h3>Physical significance</h3>
+<p>F(x) is the multi variable function is defined and differentiable in a neighbourhood of a point a, then F(x)
+decreases fast if one goes from a in the direction of the negative gradient of F at a,rF(a). it follows that, if</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
 {% endblock content %}

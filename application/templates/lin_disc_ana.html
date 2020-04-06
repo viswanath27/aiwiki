@@ -1,7 +1,44 @@
 {% extends "layout.html" %}
+<head>
+ {% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 90%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.tab-border {
+  border: 1px solid #ddd !important;
+  border-radius: 4px 4px 0 0;
+}
+
+.content-border {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 650px;
+  overflow: scroll;
+}
+
+</style>
+    {% endblock head %}
+</head>
+
 {% block content %}
+
 <div>
-<h1> Linear Discriminant Analysis </h1>
+
+
+<h1> <b>LINEAR DISCRIMINANT ANALYSIS</b></h1><br>
 <p>This section explains the Linear Discriminant Analysis of the machine learning and its uses and its examples
 Little bit about the problem statement of where Linear Discriminant Analysis is useful.</p>
 <p>Suppose there is this new cancer drug
@@ -9,13 +46,63 @@ Little bit about the problem statement of where Linear Discriminant Analysis is 
 <li>1) It works great for some people.</li>
 <li>2) But for some people it makes it worse.</li>
 </ul>
-</p>
-<p>How do we decide who to give the drug to ?
+</p><br><br>
+
+ <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+  	<li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#BASICS">BASICS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border " data-toggle="tab" href="#USECASES">USECASES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ALGORITHM">ALGORITHM</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#EXAMPLE">EXAMPLE</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-border" data-toggle="tab" href="#ESTIMATORS">ESTIMATORS</a>
+    </li>
+  </ul>
+
+<!-- Tab panes -->
+  <div class="tab-content">
+    <div id="BASICS" class="container tab-pane content-border active"><br>
+      <h3>BASICS</h3>
+      	<p>This section explains the Linear Discriminant Analysis algorithm of the machine learning domain, its uses and its examples. </p>
+		<p>LDA is like PCA, but it focuses on maximizing the separability among known categories. This thought
+process should understood so deeply such that we should be able to figure out the same meaning from the
+mathematics to understand what brings that difference.</p>
+<p>We can start with super simple example of reducing the 2D graph to 1D graph.
+one bad way to do it to ignore the Gene Y and project all th 2D to X axis.</p>
+<p>LDA uses the information from both the axis to create a new axis. This other axis is used to project the
+information on to it, in a way to maximize the seperation of the two categories.In summary LDA creates a
+new axis and projects the data on to it such a way that it maximizes the difference of these two categories.
+Lets look at how LDA creates new axis.</p>
+<p><b>[Criteria 1]</b> The new axis is created according to new criteria that are considered simultaneously. The
+criteria is once the data is projected on to a new axis, we want to Maximize the distance between two means.</p>
+<p><b>[Criteria 2]</b> Minimize the variation (which LDA calls "Scatter" and is represented by s2) within each
+category.</p>
+<p>If we have to consider these two criteria simultaneously, we have the ratio of these both criteria as shown below.</p>
+<p>
+Suppose for example we only maximize the distance between means for some data sets there will be still a lot of overlap. This isn't a great seperation. So if we optimize both criteria at the same time, we get a good seperation. What if we have more than 2 Dimensions, the process still  remains the same. What if we have three categories to come up with. In this case we first find the center point of data, than we measure the distance between center point of each category and the main center point.</p>
+    </div>
+    <div id="USECASES" class="container tab-pane content-border fade"><br>
+      <h3>USECASES</h3>
+      <p>Little bit about the problem statement of where Linear Discriminant Analysis is useful.</p>
+		<p>Suppose there is this new cancer drug</p>
+		<ol>
+			<li> It works great for some people.</li>
+			<li> But for some people it may turn out to be worse.</li>
+		</ol>
+      	<p>How do we decide who to give the drug to ?
 We want to give it to people whom this will help but now harm. May be gene expression can help us decide
 here.If we plot the gene expression on the number line and see, there can be segregation of dots which are
 all one side (people for which drug works) rest of dots allligned at other side (people for which drug does
 not work for). This is basically low transcription of gene X and druf is not working for the people who have
-high transcription of gene X. There can be an overlap in middle which is not a clear cuto of who to give
+high transcription of gene X. There can be an overlap in middle which is not a clear cutoff of who to give
 the drug to. In summary Gene X does an okay job to tell us who should be drug given vs whom it should
 not be given. Can we improve this situation, what if we can use more than one Gene to make a decision.
 There could be Gene X and Gene Y plotted in 2D space where it shows who gets the drug and who does
@@ -27,22 +114,8 @@ than 3D. This is similar to PCA problem. PCA reduces dimensions by focusing on t
 variation. This can be useful to plotting data with a lot of dimensions onto a simple XY plot. However in
 we are not interested in the genes with most variation. But we are interested in maximizing the separability
 between the two groups so that we can make a best decision.</p>
-<p>LDA is like PCA, but it focuses on maximizing the separability among known categories. This thought
-process should understood so deeply such that we should be able to gure out the same meaning from the
-mathematics to understand what brings that dierence.</p>
-<p>We can start with super simple example of reducing the 2D graph to 1D graph.
-one bad way to do it to ignore the Gene Y and project all th 2D to X axis.</p>
-<p>LDA uses the information from both the axis to create a new axis. This other axis is used to project the
-information on to it, in a way to maximize the seperation of the two categories.In summary LDA creates a
-new axis and projects the data on to it such a way that it maximizes the dierence of these two categories.
-Lets look at how LDA creates new axis.</p>
-<p><b>[Criteria 1]</b> The new axis is created according to new criteria that are considered simultaneously. The
-criteria is once the data is projected on to a new axis, we want to Maximize the distance between two means.</p>
-<p><b>[Criteria 2]</b> Minimize the variation (which LDA calls "Scatter" and is represented by s2) within each
-category.</p>
-<p>If we have to consider these two criteria simultaneously, we have the ratio of these both criteria as shown below.</p>
-<p>
-Suppose for example we only maximize the distance between means for some data sets there will be still a lot of overlap. This isn't a great seperation. So if we optimize both criteria at the same time, we get a good seperation. What if we have more than 2 Dimensions, the process still  remains the same. What if we have three categories to come up with. In this case we first find the center point of data, than we measure the distance between center point of each category and the main center point.</p>
+
+
 
 <p>If we compare LDA and PCA, LDA gives clear demarkation but PCA does not give the clear seperation.
 PCA does not seperate but will know the genes which has more variation.</p>
@@ -65,6 +138,40 @@ know categories.</p>
 <p>Code for this function is provided in below link:</p>
 <h4><b> Example</b></h4>
 <p>Example usage of the Logistic Regression Model</p>
+</div>
+<div id="ALGORITHM" class="container tab-pane content-border active"><br>
+      <h3>ALGORITHM</h3>
+      	<p>This section explains the Linear Discriminant Analysis of the machine learning and its uses and its examples Little bit about the problem statement of where Linear Discriminant Analysis is useful.</p>
+		<p>Suppose there is this new cancer drug</p>
+		<ol>
+			<li> It works great for some people.</li>
+			<li> But for some people it makes it worse.</li>
+		</ol>
+    </div>
+
+
+<div id="EXAMPLE" class="container tab-pane content-border active"><br>
+      <h3>EXAMPLE</h3>
+      	<p>This section explains the Linear Discriminant Analysis of the machine learning and its uses and its examples Little bit about the problem statement of where Linear Discriminant Analysis is useful.</p>
+		<p>Suppose there is this new cancer drug</p>
+		<ol>
+			<li> It works great for some people.</li>
+			<li> But for some people it makes it worse.</li>
+		</ol>
+    </div>
+
+<div id="ESTIMATORS" class="container tab-pane content-border active"><br>
+      <h3>ESTIMATORS</h3>
+      	<p>This section explains the Linear Discriminant Analysis of the machine learning and its uses and its examples Little bit about the problem statement of where Linear Discriminant Analysis is useful.</p>
+		<p>Suppose there is this new cancer drug</p>
+		<ol>
+			<li> It works great for some people.</li>
+			<li> But for some people it makes it worse.</li>
+		</ol>
+    </div>
+ </div>
+
+
 
 </div>
 {% endblock content %}

@@ -588,6 +588,16 @@ def classifiers(subheading):
         return render_template("lin_disc_ana.html",first_level=first_level)
     elif subheading== 'KernelRidge':
         return render_template("kernel_ridge.html",first_level=first_level)
+    elif subheading== 'NaiveBayes':
+        return render_template("naive_bayes.html",first_level=first_level)        
+    elif subheading== 'SVM':
+        return render_template("svm.html",first_level=first_level)        
+    elif subheading== 'DecisionTrees':
+        return render_template("decision_tree.html",first_level=first_level)        
+    elif subheading== 'BoostedTrees':
+        return render_template("boosted_trees.html",first_level=first_level)  
+    elif subheading== 'RandomForest':
+        return render_template("random_forest.html",first_level=first_level)               
     else:
         return render_template("complex.html",first_level=first_level)
 
@@ -623,6 +633,14 @@ def NLP(subheading):
     else:
         return render_template("lstm.html",first_level=first_level)
 
+@app.route("/Stats", defaults={'subheading':'Stats'})
+@app.route("/Stats/<string:subheading>")
+def Stats(subheading):
+    first_level = FirstLevel.query.all()
+    if subheading == 'BasicStats':
+        return render_template("basicstats.html",first_level=first_level)
+    else:
+        return render_template("SentimentAnalysis.html",first_level=first_level)
 
 @app.route("/start/<string:heading>")
 def start(heading):
@@ -649,6 +667,8 @@ def start(heading):
         return render_template("book_nlp.html",first_level=first_level)
     elif heading == 'Book':
         return render_template("book.html",first_level=first_level)
+    elif heading == 'Stats':
+        return render_template("stats.html",first_level=first_level)        
     else:
         return render_template('intro.html',first_level=first_level)
 
