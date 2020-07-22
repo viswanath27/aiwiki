@@ -162,6 +162,45 @@ def handleFileUpload():
     print(classified_full_filename)
     return redirect(url_for('lr'))
 
+@app.route("/simens")
+def simens():
+    return render_template('requirements/simens.html')
+
+@app.route("/ifintalent")
+def ifintalent():
+    return render_template('requirements/ifintalent.html')
+
+@app.route("/zycus")
+def zycus():
+    return render_template('requirements/zycus.html')
+
+@app.route("/indegene")
+def indegene():
+    return render_template('requirements/indegene.html')
+
+@app.route("/cm1")
+def cm1():
+    return render_template('requirements/cm1.html')
+
+@app.route("/skyleaf")
+def skyleaf():
+    return render_template('requirements/skyleaf.html')
+
+@app.route("/cm2")
+def cm2():
+    return render_template('requirements/cm2.html')
+
+@app.route("/cm3")
+def cm3():
+    return render_template('requirements/cm3.html')    
+
+@app.route("/requirement")
+def requirement():
+    return render_template('requirement.html')
+
+@app.route("/axim")
+def axim():
+    return render_template('requirements/axim.html')
 
 @app.route("/newhandleUpload", methods=['POST'])
 def newhandleFileUpload():
