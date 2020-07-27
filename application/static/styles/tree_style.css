@@ -39,6 +39,23 @@ body {
   font-size: 36px;
   margin-left: 50px;
 }
+.main1 {
+   /*margin-left: 300px; /* Same as the width of the sidenav */
+ 
+ }
+ .layoutMain_new {
+     margin-left:7px;
+ }
+ 
+ #main1 {
+   /*transition: margin-left .5s;*/
+   /*padding: 16px;*/
+   margin-top: 80px;
+   float: right;
+   width: 82%;
+ 
+ }
+ 
 
 .main {
  /* margin-left: 300px; /* Same as the width of the sidenav */

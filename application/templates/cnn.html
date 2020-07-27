@@ -1,88 +1,141 @@
-{% extends "layout.html" %}
+{% extends "layout_new.html" %}
+
 
 {% block content %}
-<div>
-    <h1>CLUSTERING </h1>
-    <p>Clustering is a concept of organizing the data on a line, 2 D map or graph or may be 3 D. This would help
-us to know how the data is organized and what we can derive about the data.Information about the all the
-algorithms which are mentioned below. One of the sample use case of each of them. Identify what best
-ts the use-case and why. What are the limitations of each of the method. How to improve the algorithm
-to make it better an computationally eective. Also see if there are any ways in which nature applies such
-algorithms and if so how will it do. Below are the list of the Clustering Algorithms. Also always understand
-the mathematical representation of the algorithms which are simple and easy persecive, so that complex
-algorithm can be easily understood.</p>
-<ul>
-<li>1) K- Means</li>
-<li>2) Anity Propogation</li>
-<li>3) Mean-shift</li>
-<li>4) Spectral Clustering</li>
-<li>5) Ward Hierarchial Clustering</li>
-<li>6) Agglomerative clustering</li>
-<li>7) DBSCAN</li>
-<li>8) Gaussian Mixtures</li>
-<li>9) Brich</li>
-</ul>    
-<h2>K-MEANS</h2>
-<p>In K-Mean algorithm we understand how to pick the best value for K. Once we plot a data based on distribu-
-tion we get to its allignment we can see that data is alligned in clusters. But in how can we make computer
-to identify these clusters. Following are the steps which are present in K-means cluster.</p>
-<ul>
-	<li><b>[STEP 1]:</b> Select the number of the clusters you want to end up after clustering. This is the K in K-Means
-cluster (like example if you want 3 clusters, k will be 3). There also a better way to select K</li><br>
-	<li><b>[STEP 2]:</b> Randomly select 3 distant Data points.These will be the initial clusters.</li><br>
-	<li><b>[STEP 3]:</b> Measure the distance between the rst point and the 3 initial clusters.</li><br>
-	<li><b>[STEP 4]:</b> Assign the rst point to the nearest cluster.</li><br>
-	<li><b>[STEP 5]:</b> Repeat the same to the second point and assign the cluster which is near to it.</li><br>
-	<li><b>[STEP 6]:</b> After this step we should calculate the mean of each cluster. That would be the average of all the
-groups of the points in cluster.</li><br>
-	<li><b>[STEP 7]:</b> Again measure and cluster using the mean values. This way it may not lead to good clustering.</li><br>
-	<li><b>[STEP 8]:</b> But to assess the quality of clustering by adding up the variation within each cluster.</li><br>
-	<li><b>[STEP 9]:</b> So it beign the machine it cannot judge the best initial points, we have to do above said complete
-procedure by choosing dierent initial points and keep the mean and variance. This will repeat for all the
-points in group.</li><br>
-	<li><b>[STEP 10]:</b> Once after all the clustering is compared we can understand the variance and see which is the
-best clustering out of all the samples.</li><br>
-	<li><b>[STEP 11]:</b> How do we know best K value ?</li>
-<p>Answer : one possible way is to start with K = 1 and try dierent values and check the total variation
-against the next number. As you increase you may see improvement. But after some time you may end up
-not seeing benet in higher values. When the K reaches max number of points we get the variation 0. If we
-plot all these iterations of variance and K We can easily notice after what value of K it will not impact any
-more.</p><br>
-	<li><b>[STEP 12]:</b> How do we know best points to choose to reduce the number of iterations in algorithm.</li><br>
-	<li><b>[STEP 13]:</b> What happens if we have the 2-D points instead of point on single line.</li><br>
-<p>Answer: We have to consider the euclidean distance this is same pythogarus distance of the selected point
-to new point.
-<img src="http://latex.codecogs.com/gif.latex?$\sqrt{x^{2} + y^{2}}$" border="0"/><br></p>
-<li><b>[STEP 14]:</b> What is my data is a heat map?</li>
-<p>Answer: If we have 2 samples we can plot the same on X & Y map. If we have more than 2 dimensional
-data.<br>
-ex1: 3 D data, euclidean distance is <img src="http://latex.codecogs.com/gif.latex?$\sqrt{x^{2} + y^{2} + z^{2} }$" border="0"/><br>
-ex2: 4 D data, euclidean distance is <img src="http://latex.codecogs.com/gif.latex?$\sqrt{x^{2} + y^{2} + z^{2} + a^{2}}$" border="0"/><br>
-Some more important information</p><br>
-
-</ul>
-
-<h3>Affinity Propogation</h3>
-<h3>Mean-shift</h3>
-<h3>Spectral Clustering</h3>
-<h3>Ward Hierarchial Clustering</h3>
-<p>Hierarchial clustering is often associated with heat maps. Heat maps are where columns represent dierent
-samples and the rows represent measurements from different genes. Red means high expressino of gene and
-blue or purple means lower expression of gene.</p>
-<h3>Agglomerative clustering</h3>
-<h3>DBSCAN</h3>
-<h3>Gaussian Mixtures</h3>
-<h3>Brich</h3>
 
 
-<h2> Usecase</h2>
-<h2> Example</h2>
-<h2> Code</h2>
-<h2> Links </h2>
-<p>Following section has all the links from which the above content is been understood and presnted.</p>
-<ul>
-<li><a href="https://towardsdatascience.com/deep-learning-with-python-703e26853820">1. https://towardsdatascience.com/deep-learning-with-python-703e26853820</a></li>
-</ul>
-<h2> Conclusion </h2>
+<div style="padding-bottom: 2%;">
+	<style>
+		.pagination {
+			display: inline-block;
+		}
+	
+		.pagination a {
+			color: black;
+			float: left;
+			padding: 8px 16px;
+			text-decoration: none;
+		}
+	</style>
+	
+	<style>
+		.card {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			transition: 0.3s;
+			width: 40%;
+		}
+	
+		.card:hover {
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+		}
+	
+		.container {
+			padding: 2px 16px;
+		}
+	</style>
+	<h2 style="font-weight: 800;">CONVOLUTION NEURAL NETWORK INTRODUCTION (CNN)</h2><br><br>
+
+	<div class="card" style="height: 100%; width: 90%; margin: auto; padding-bottom: 2%; padding-left: 2%;
+    padding-right: 2%;padding-top: 2%;" >
+	  <!-- <img src="img_avatar.png" alt="Avatar" style="width:100%"> -->
+	  
+	  <table style="width:100%">
+		<tr>
+			<td valign="top" style="width: 50%; ">
+			<div style="padding-right: 3%;">
+
+
+	  <h4 style="font-weight: 900;">BACK GROUND </h4>
+		<table style="width:100%">
+			<tr>
+			  <td><b>1956 &ensp;</b></td>
+			  <td>Neural network based computations machines</td>
+			  <td><b>Rochester, Holland, Habit, Duda</b></td>
+			</tr>
+			<tr>
+			  <td><b>1958 &ensp;</b></td>
+			  <td>First perceptron for pattern recognition</td>
+			  <td><b>Rosenblatt </b></td>
+			</tr>
+			<tr>
+			  <td><b>1959 &ensp;</b></td>
+			  <td>A biological model proposed with simple and complex cell</td>
+			  <td><b>Hubel and Wiesel (Nobel laureates)</b></td>
+			</tr>
+			<tr>
+				<td><b>1965 &ensp;</b></td>
+				<td>First functional networks with many layers was published</td>
+				<td><b>Ivakhnenko and Lapa</b></td>
+			  </tr>
+		  </table>
+	<br><br>
+	Research stagnated due to 
+	<ol>
+		<li> Perceptron is in-capable to process the exclusive-or circuit </li>
+		<li> Processing power was an issue to handle large neural networks</li>
+	</ol>
+	<br><br>
+	<table style="width:100%">
+		<tr>
+		  <td><b>1975 &ensp;</b></td>
+		  <td> Backpropogation, distributed error and adjusted weights at each node</td>
+		  <td><b>Werbos</b></td>
+		</tr>
+		<tr>
+		  <td><b>1986 &ensp;</b></td>
+		  <td>Parallel and distributed computing used to simulate Neural networks</td>
+		  <td><b>Rumelhart and McClelland </b></td>
+		</tr>
+		<tr>
+		  <td><b>1988 &ensp;</b></td>
+		  <td>CNN was developed with biological inspired image reconition model</td>
+		  <td><b>Geoffrey Hinton and Yann LeCun</b></td>
+		</tr>
+		<tr>
+			<td><b>2006 &ensp;</b></td>
+			<td>Proposed stacking of multiple layers, to learn high level representaion</td>
+			<td><b>Geoffrey Hinton</b></td>
+		  </tr>
+		  <tr>
+			<td><b>2012 &ensp;</b></td>
+			<td>Cats and dogs classificatoin with high level learning system<	/td>
+			<td><b>Andrew Ng and Jeff Dean</b></td>
+		  </tr>
+	  </table>
+	<br><br>
+	</div>
+	</td>
+	  <td style="width: 50%;">
+		<div style="padding-right: 3%;">
+			<h4 style="font-weight: 900;">TERMINOLOGY</h4>
+	  <ol>
+		  <li>Neurons </li>
+		  <li>Layers</li>
+		  <li>Activation function</li>
+		  <li>Back Propogation</li>
+	  </ol>
+	  <br><br>
+		<h4 style="font-weight: 900;">DEFINITIONS</h4>
+		<ul>
+			<li><p><b><u>Neurons:</u></b> These are the circuits which help process and transmit the data to next Layers</p></li>
+			<li><p><b><u>Layers:</u></b> These are the combinations of the group of neurons which can connected together in a particular fashion</p></li>
+			<li><p><b><u>Activation function:</u></b> This is the non-linear funciton which will add the bias component to the system</p></li>
+			<li><p><b><u>Back Propogation:</u></b> This is the mechanism using which the error is calculated and the weigths are adjusted so that 
+				network learns the features based on its mistakes</p></li>
+		</ul>
+	</div>
+		</td>
+	  </tr>
+	</table>
+	  <!-- <img src="{{url_for('static', filename='classifier_info.png')}}" alt="" align="middle" style="width:100%"> -->
+	  <!-- <div class="container">
+		<h4><b>John Doe</b></h4> 
+		<p>Architect & Engineer</p> 
+	  </div> -->
+	</div>
+
+
+
+
 </div>
 {% endblock content %}

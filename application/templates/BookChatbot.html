@@ -2,9 +2,23 @@
 
 {% block content %}
 <div style=" padding-right: 10%; padding-bottom: 10%;">
-<h1> CHATBOT - DIALOGUE FLOW - GOOGLE </h1>
+<h1 id="HOME"> CHATBOT - DIALOGUE FLOW - GOOGLE </h1>
+<h3> TABLE OF CONTENTS</h3>
+<ol>
+<li><a href="#INTRODUCTION">INTRODUCTION</a></li>
+<li><a href="#INTENT">INTENT MATCHING</a></li>
+<li><a href="#ENTITY">ENTITY EXTRACTION</a></li>
+<li><a href="#DIALOGUE">DIALOGUE CONTROL</a></li>
+	<ol>
+		<li><a href="#LINEAR">LINEAR DIALOGUE CONTROL</a></li>
+		<li><a href="#NON_LINEAR">NON-LINEAR DIALOGUE CONTROL</a></li>
+	</ol>
+<li><a href="#FOLLOW_UP">FOLLOW UP</a></li>
+<li><a href="#API">CHAT BOT APIs</a></li>
+</ol>
 
-<h3 style ="font-weight: 900;">INTRODUCTION</h3>
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h3  id="INTRODUCTION" style ="font-weight: 900;">INTRODUCTION</h3>
 
 <p>This section will help us understand how to configur the <b>chatbot</b> using <b>Google's dialogue flow</b>. This is mainly configuring the chat bot for our requirement. We will go through the step by step flow of the complete configuration process to make a full fledged Chat bot ready to use in our usecase as needed. </p>
 
@@ -15,9 +29,10 @@ Main sections of the Dialogue flow or matter of fact any other chatbot is follow
 	<li>Dialog control</li>
 </ol>
 
-Following section we will discuss each one of them in very detailed manner
 
-<h3 style ="font-weight: 900;">INTENT MATCHING</h3>
+Following section we will discuss each one of them in very detailed manner
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h3 id="INTENT" style ="font-weight: 900;">INTENT MATCHING</h3>
 <p>Definition of Intent matching is we try to understand what user really wants to know. This basically helps us understand what users are saying. There could be possibly some specific intents which user wants to communicate for the give usecase. We need to list out some intents and than provide examples for each intent initially. Assuming we have provided a few intents, Dialogue flow understands most of the other phrases which of similar context. </p>
 
 <p> When a user asks new question, System will classify/match the most suitable intent and can respond accordingly. Examples of the intents and the questions corresponding to them are shown below. We show 3 intents </p>
@@ -45,7 +60,8 @@ Following section we will discuss each one of them in very detailed manner
 </ol>
 
 <p>For any chabot configuration, we can possibly have a bunch of intents to 1000's of intent. There could be possible addition of language variable so that chatbot can function for different languages. Also new intents can be added as there is more usage and can make it more clever as time passes.  </p>
-<h3 style ="font-weight: 900;">ENTITY EXTRACTION</h3>
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h3 id="ENTITY" style ="font-weight: 900;">ENTITY EXTRACTION</h3>
 <p>As we get a question from the user and we have gone through the initial step of intent matching. We also will have to extract the important words which signify context, like names, dates, places, money and other similar information. Dialogue flow can pick entities based on the built in system entities. Also we can customize the new entities which are related to the context. For example in this context we can create new entities like types of bikes and types of service</p>
 
 <ul>
@@ -130,14 +146,15 @@ Following section we will discuss each one of them in very detailed manner
 </ol>
 
 <p>Over all we understand that intents will help to understand what user wants and entities will help use understand details about the details of what user wants.</p>
-
-<h3 style ="font-weight: 900;">DIALOGUE CONTROL </h3>
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h3 id="DIALOGUE" style ="font-weight: 900;">DIALOGUE CONTROL </h3>
 <p>Dialouge is basically combining this information and giving the response to user for his question. There are two types of the dialogues </p>
 <ol>
 	<li>Linear Dialogue </li>
 	<li>Non Linear Dialogue</li>
 </ol>
-<h4> LINEAR DIALOGUE</h4>
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h4 id="LINEAR"> LINEAR DIALOGUE</h4>
 <p>This is used in general to collect all the information necessary for answering the question. Ex: Type of service, Date, Time.</p>
 <p><u>Example of linear dialogue:</u></p>
 <p> Imagine we are asking an assitant to repair a bike </p>
@@ -177,7 +194,8 @@ Following section we will discuss each one of them in very detailed manner
 <p><b>AGENT --> "Thanks! You're scheduled for a puncture repair this Firday at 2:00 PM"</b></p>
 <p>Linear dialogue can only work when we have specific set of facts we wish to collect. </p>
 <br>
-<h4> NON LINEAR DIALOGUE</h4>
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h4 id ="NON_LINEAR"> NON LINEAR DIALOGUE</h4>
 <p> This is more like real conversation with lots of twists and turns in the conversation based on the changes in context . When user says some thing this will be interpreted based on the context of what is said before. </p>
 
 <p><u>Lets see an example for the same below </u></p>
@@ -190,11 +208,35 @@ Following section we will discuss each one of them in very detailed manner
 <br>
 
 <p>Basically when user answers YES for first and second question Dialogue flow knows which question is answered with the concept called context. For each intent we can define  multiple input and output contexts . In this case our Book-repair intent has output context confirm repair. When a specific intent is matched, its output contexts are attached to the current conversation state. In this case the conversatoins context now include confirm repair.Each intent may have input context.If an intent specifies the input context confirm repair, it will only matched if the confirm repair context is currently attached to the conversation. In our example we have 4 intents that match a yes or no from the user. But two of them are yes or no to confirming the repair,While the others a yes or no to sending a reminder.We can use the context only if the appropriate intent is matched.We add the input context confirm repair to our repair.yes and no intent. To the yes intent, we also add the output context confirm reminder. Than we add the input context confirm reminder to our reminder.yes and no intents. Becuase of how we set both intents input contexts, the repair.yes or no intents will only match after the book repair intent and reminder.yes or no intent will only match after the repair.yes. In addition to acting as a filter contexts apply a bias to intent matching. So faced with two options, Dialogflow will be more likely to match the given users statment to an intent that has mathcing input context. Contexts expire automatically after 20 mins. Also we can specifiy how many subsequent turns of conversations they'll last.We can also use an intent output context to update or remove any contexts that are currently applied.Contexts are extremely powerful.They can even be used to store data, like the values of  parameters and make it available to subsequent intents.  </p> 
-
-<h4> FOLLOW UP </h4>
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h4 id="FOLLOW_UP"> FOLLOW UP </h4>
 <p>This is another useful tool to build best conversations, is followup intent. It provides the shortcut for a common usage of contacts.For a given intent you can add follow-up intents that will only be triggered after the initial intent has been matched. You can use these to match  things like yes or no in answer to a specific question posed by an intent. LIke in our earlier example. By making them specific to a single intent, you avoid accidentally matching any yes or no answers. given else where in the conversation. Follow-up intents make use of the contexts, so you can use them as as shortcut.for this powerful feature. Another useful feature is fallback intent. This is triggered is the user's input is not matched to any of the avalible intents.You can use them to help guide the user in the right direction. Every agent comes with default agent comes with default fallback intent and you can create follow-up fall back  intents that use contexts to ensure that they will only be matched after a specific intent is been triggered. </p>
 
 <p>These are built logic to control the conversation. 
 But there are always moments where we want our own logic to take control. You could be using parameter values to make something happen on your backend. like booking an appointments in a calendar. or you could be making use of information about the user to build a custom response to their query. To control dialogflow's conversations programatically you will need to use fulfillment. its easy with some basic programming skills. First you create a webserver that exposes as single http endpoint. We call this a WebHook, and its where your custom logic will live While you can use  any environment you prefer. Google provides the built in editor that lets user to write a java script code and deploy it into could functions for firebase with a single click. Next we just enable fulfilment for any intents that need it. You can give each intent an action name that helps you fulfilment know which one was triggered. Now when one of these intents matched  Dialogflow will send a JSON request to your WebHook that contains what user said, the values of the any entities that are extracted and the action name so you know which intent was matched. If user is using on of google's one of one-click integrations, you will also receive some data from that platform about the user. When you call our API directly,  you can provide custom information of your own . In your WebHook, you can use this information to do stuff like access your data store. trigger business logic and call APIs. You can also generate a response. What ever response you generate will be sent to the user by Dialogflow. You can also use the WebHook to set and remove context and parameter values, allowing you to control the flow of conversation through your code. Between all of these tools, we have a ton of ways to guide and control the flow of conversation. There's a lot here to think about.but the best way to learn is to jump right in. Check the links in the description below for more information and have fun building. </p>
+<a style="float: right;" href="#INTRODUCTION">HOME</a>
+<h4 id="API">APIs for CHATBOT</h4>
+
+Following are APIs which are used for Chatbot design.
+
+<ol>
+	<li><b>detect_intent_texts</b>: this is to detect the intent</li>
+	<li><b>detect_intent_audio</b></li>
+	<li><b>detect_intent_stream</b></li>
+	<li><b>detect_intent_knowledge</b></li>
+	<li><b>detect_intent_with_model_selection</b></li>
+	<li><b>detect_intent_with_sentiment_analysis</b></li>
+	<li><b>detect_intent_with_texttospeech_response</b></li>
+	<li><b>intent_management</b></li>
+	<li><b>entity_type_management</b></li>
+	<li><b>entity_management</b></li>
+	<li><b>session_entity_type_management</b></li>
+	<li><b>knowledge_base_management</b></li>
+	<li><b>document_management</b></li>
+
+</ol>
+
+
 </div>
+
 {% endblock content %}
