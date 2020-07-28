@@ -50,5 +50,28 @@ value in it is handled in a more intelligent way.
 function looks like.
 2) Than it samples the loss at a new point that maximizes some utility of the expectation of function.
 
+<h1> Feature engineering  </h1>
+
+<h2>Understanding what number manipulation can do to data</h2>
+<ol>
+    <li><b>MAGNITUDE:</b></li>
+        <ul><li>First check we need to do is if the magnitude matters in the data. If so how much really does matter, small changes or big changes</li>
+        </ul>
+    <li><b>SCALE:</b></li>
+    <ul>
+        <li>What are the smallest and largest values for features. For the models like K-Means Clustering, RBF kernels and any thing that uses Euclidean distance should be normalized</li>
+    </ul>
+    <li><b>LOGICAL FUNCTIONS:</b></li>
+        <ul>
+            <li>Logical functions does not really depend on maganitude as their output is generally 1 or 0 irrespective of what input is fed to it. </li>
+            <li>Ex: step function, op is 1 if a number &gt; 5</li>
+            <li>Decision trees, gradient boosting, random forests are not sensitive to the scale</li>
+        </ul>
+    <li><b>DISTRIBUTION:</b></li>
+    <ul>
+        <li>Distribution matters for some models, like linear regression assumes that prediction errors are distributed like a Gaussian. This is fine to assume 
+            if the prediction target spreads out over several orders of magnitude.</li>
+    </ul>
+</ol>
 </div>
 {% endblock content %}

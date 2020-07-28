@@ -162,6 +162,80 @@ def handleFileUpload():
     print(classified_full_filename)
     return redirect(url_for('lr'))
 
+
+@app.route("/cnn")
+def cnn():
+    return render_template('cnn.html')
+
+@app.route("/cnn2")
+def cnn2():
+    return render_template('/cnn_folder/cnn2.html')
+
+
+@app.route("/cnn3")
+def cnn3():
+    return render_template('/cnn_folder/cnn3.html')
+
+@app.route("/cnn4")
+def cnn4():
+    return render_template('/cnn_folder/cnn4.html')
+
+@app.route("/cnn5")
+def cnn5():
+    return render_template('/cnn_folder/cnn5.html')
+
+@app.route("/cnn6")
+def cnn6():
+    return render_template('/cnn_folder/cnn6.html')
+
+@app.route("/cnn7")
+def cnn7():
+    return render_template('/cnn_folder/cnn7.html')
+
+@app.route("/cnn8")
+def cnn8():
+    return render_template('/cnn_folder/cnn8.html')
+
+@app.route("/cnn9")
+def cnn9():
+    return render_template('/cnn_folder/cnn9.html')
+
+@app.route("/cnn10")
+def cnn10():
+    return render_template('/cnn_folder/cnn10.html')
+
+@app.route("/cnn11")
+def cnn11():
+    return render_template('/cnn_folder/cnn11.html')
+
+@app.route("/cnn12")
+def cnn12():
+    return render_template('/cnn_folder/cnn12.html')
+
+@app.route("/cnn13")
+def cnn13():
+    return render_template('/cnn_folder/cnn13.html')
+
+@app.route("/cnn14")
+def cnn14():
+    return render_template('/cnn_folder/cnn14.html')
+
+@app.route("/cnn15")
+def cnn15():
+    return render_template('/cnn_folder/cnn15.html')
+
+@app.route("/cnn16")
+def cnn16():
+    return render_template('/cnn_folder/cnn16.html')
+
+@app.route("/cnn17")
+def cnn17():
+    return render_template('/cnn_folder/cnn17.html')
+
+@app.route("/cnn18")
+def cnn18():
+    return render_template('/cnn_folder/cnn18.html')
+
 @app.route("/simens")
 def simens():
     return render_template('requirements/simens.html')
