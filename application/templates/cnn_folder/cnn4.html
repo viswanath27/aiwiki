@@ -5,47 +5,35 @@
 
 
 <div style="padding-bottom: 2%;">
-	<style>
-		.pagination {
-			display: inline-block;
-		}
-	
-		.pagination a {
-			color: black;
-			float: left;
-			padding: 8px 16px;
-			text-decoration: none;
-		}
-	</style>
-	
-	<style>
-		.card {
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-			transition: 0.3s;
-			width: 40%;
-		}
-	
-		.card:hover {
-			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-		}
-	
-		.container {
-			padding: 2px 16px;
-		}
-	</style>
 	<h2 style="font-weight: 800;">ARCHITETCURES OF CNN </h2><br><br>
 
 	<div class="card" style="height: 100%; width: 90%; margin: auto; padding-bottom: 2%; padding-left: 2%;
-    padding-right: 2%;padding-top: 2%;" >
-	  <!-- <img src="img_avatar.png" alt="Avatar" style="width:100%"> -->
-	 <h3><b>CNN - ACTIVATION FUNCTIONS</b></h3> 
-	  <p>CNN is the best kind of neural network which is desgined up on the brains design and works mostly in that fashion</p>
-	  <!-- <img src="{{url_for('static', filename='classifier_info.png')}}" alt="" align="middle" style="width:100%"> -->
-	  <!-- <div class="container">
-		<h4><b>John Doe</b></h4> 
-		<p>Architect & Engineer</p> 
-	  </div> -->
-	</div>
+	padding-right: 2%;padding-top: 2%;" >
+
+	<table style="width:100%; ">
+		<tr>
+			<td valign="top" style="width: 50%; ">
+				<div style="PADDING-RIGHT: 3%;">	
+					<!-- <img src="img_avatar.png" alt="Avatar" style="width:100%"> -->
+					<h3><b>CNN - ACTIVATION FUNCTIONS</b></h3> 
+					<p>CNN is the best kind of neural network which is desgined up on the brains design and works mostly in that fashion</p>
+					<img src="{{url_for('static', filename='images/level_2.PNG')}}" alt="" align="middle" width="60%"
+					height="100%"><br>
+				</div>
+
+			</td>
+			<td valign="top">
+				<div>
+					<div style="height: 50%; " class = "vertical"></div> 
+				</div>
+			</td>
+			<td style="width: 50%;  ">
+				<div style="PADDING-RIGHT: 3%; PADDING-LEFT: 3%;">
+					<h3><b>MATHEMATICAL NEURON ARCHITECTURE</b></h3><hr><br>
+				</div>
+			</td>
+		</tr>
+	</table>
 
 </div>
 {% endblock content %}
