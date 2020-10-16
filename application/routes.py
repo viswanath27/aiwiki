@@ -52,10 +52,12 @@ def index():
 
 
   
-
+'''
 @app.route("/gan",methods=['GET','POST'])
 def gan():
     return render_template('gan.html')
+'''
+
 '''
 @app.route('/progress')
 def progress():
@@ -724,6 +726,28 @@ def introduction(subheading):
     else:
         return render_template("complex.html",first_level=first_level)
 
+
+
+@app.route("/gan", defaults={'subheading':'gan'})
+@app.route("/gan/<string:subheading>")
+def gan(subheading):
+    first_level = FirstLevel.query.all()
+    if subheading == 'DCGAN':
+        return render_template("gan_process/dcgan.html", first_level=first_level)
+    elif subheading == 'CYCLEGAN':
+        return render_template("gan_process/cyclegan.html", first_level=first_level)
+    elif subheading == 'ADVERSARIAL_FGSM':
+        return render_template("gan_process/adversarial_fgsm.html", first_level=first_level)
+    elif subheading == 'DEEPDREAM':
+        return render_template("gan_process/deepdream.html", first_level=first_level)
+    elif subheading == 'PIX2PIX':
+        return render_template("gan_process/pix2pix.html", first_level=first_level)
+    elif subheading == 'VARIATIONAL_AUTOENCODER':
+        return render_template("gan_process/variational_autoencoder.html", first_level=first_level)
+    elif subheading == 'NUERAL_STYLE_TRANSFERR':
+        return render_template("gan_process/neural_style_transfer.html", first_level=first_level)
+    else:
+        return render_template("gan.html", first_level=first_level)
 
 @app.route("/NLP", defaults={'subheading':'NLP'})
 @app.route("/NLP/<string:subheading>")

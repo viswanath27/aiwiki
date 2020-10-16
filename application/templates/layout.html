@@ -126,7 +126,13 @@
                 {% for slevel in value.secondlevel %}
                 <li><a href="{{url_for('Stats',subheading=slevel.title)}}">{{slevel.title}}</a></li>
                 {% endfor %}
-            </ul>  
+            </ul>
+            {% elif value.title == 'Gan'%}
+            <ul class="nested">
+                {% for slevel in value.secondlevel %}
+                <li><a href="{{url_for('gan',subheading=slevel.title)}}">{{slevel.title}}</a></li>
+                {% endfor %}
+            </ul>
             {% endif %}
         </li>
         {% endfor %}
