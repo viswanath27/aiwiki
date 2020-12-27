@@ -1,4 +1,4 @@
-from application.models import User, FirstLevel, SecondLevel
+from application.models import User, FirstLevel, GanTable
 from application import app, db, bcrypt
 from flask import render_template, flash, redirect, url_for, Markup, Flask, request, Response
 from application.forms import RegistrationForm, LoginForm, ProcessDataForm, ConvertDataForm, PackageDataForm, LRegressionForm, RecoEngineForm, image_classification, object_identify, language_translate
@@ -781,7 +781,7 @@ def Stats(subheading):
 
 @app.route("/start/<string:heading>")
 def start(heading):
-    first_level = FirstLevel.query.all()
+    first_level: object = FirstLevel.query.all()
     if heading == 'Introduction':
         return render_template("intro.html",first_level=first_level)
     elif heading == 'Classifiers':
@@ -805,7 +805,9 @@ def start(heading):
     elif heading == 'Book':
         return render_template("book.html",first_level=first_level)
     elif heading == 'Stats':
-        return render_template("stats.html",first_level=first_level)        
+        return render_template("stats.html",first_level=first_level)
+    elif heading == 'Gan':
+        return render_template("gan_process/gan_base.html",first_level=first_level, gantabledata=GanTable.query.all())
     else:
         return render_template('intro.html',first_level=first_level)
 

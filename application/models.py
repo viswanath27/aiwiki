@@ -29,3 +29,11 @@ class SecondLevel(db.Model):
 
     def __repr__(self):
         return f"secondLevel('{self.title}')"
+
+class GanTable(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    gan_name = db.Column(db.String(1000), unique=True, nullable=False)
+    gan_definition = db.Column(db.String(5000))
+
+    def __repr__(self):
+        return f"gantable('{self.gan_name}')"
